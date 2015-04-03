@@ -15,7 +15,7 @@ Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::resource('clubs', 'ClubsController');
+Route::get('clubs', 'ClubsController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
