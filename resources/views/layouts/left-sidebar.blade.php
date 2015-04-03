@@ -14,7 +14,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="#"><i class="fa fa-user"></i>Users</a></li>
-                    <li><a href="#"><i class="fa fa-sitemap"></i>Clubs</a></li>
+                    <li><a href="{{ url('/clubs') }}"><i class="fa fa-sitemap"></i>Clubs</a></li>
                     <li><a href="#"><i class="fa fa-group"></i>Coaches</a></li>
                     <li><a href="#"><i class="fa fa-cog"></i>Classifiers</a></li>
                     <li><a href="#"><i class="fa fa-clock-o"></i>History</a></li>

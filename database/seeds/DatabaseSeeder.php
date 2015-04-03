@@ -15,6 +15,19 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
 		// $this->call('UserTableSeeder');
+        $this->call('ClubsTableSeeder');
 	}
+
+
+}
+
+class ClubsTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('clubs')->delete();
+
+        \App\Club::create(['name' => 'Trefoil', 'address' => 'Aia 20, Tallinn', 'phone' => '+372 56 469 095', 'email' => 'trefoil@trefoil.ee']);
+    }
 
 }
