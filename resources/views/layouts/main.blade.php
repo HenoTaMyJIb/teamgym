@@ -188,6 +188,7 @@
             <li><a href="#">Examples</a></li>
             <li class="active">Blank page</li>
         </ol>
+        @include('errors.list')
     </section>
 
     <!-- Main content -->

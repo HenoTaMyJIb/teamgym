@@ -2,6 +2,7 @@
 
 use App\AgeGroup;
 use App\Http\Requests;
+use App\Http\Requests\AgeGroupRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -32,10 +33,10 @@ class AgeGroupsController extends Controller {
 	/**
 	 * Store a newly created resource in storage.
 	 *
-     * @param  Request  $request
+     * @param  AgeGroupRequest  $request
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(AgeGroupRequest $request)
 	{
         AgeGroup::create($request->all());
 
@@ -71,7 +72,7 @@ class AgeGroupsController extends Controller {
      * @param  Request  $request
 	 * @return Response
 	 */
-	public function update($slug, Request $request)
+	public function update($slug, AgeGroupRequest $request)
 	{
         $ageGroup = AgeGroup::where('slug', '=', $slug)->firstOrFail();
 

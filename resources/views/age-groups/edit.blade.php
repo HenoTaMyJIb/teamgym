@@ -45,17 +45,16 @@
             </div>
             <div class="box-footer">
                 <div class="row">
-                    <div class="col-xs-12">
-                        {!! Form::submit('Save', ['class' => 'btn btn-success pull-right']) !!}
+                    <div class="col-xs-2">
+                        {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
                         {!! Form::close() !!}
+                        <a href="{{ url('age-groups')}}" class="btn btn-default">Back</a>
+                    </div>
+                    <div class="col-xs-10">
                         {!! delete_form(['age-groups.destroy', $ageGroup->slug]) !!}
                     </div>
-
                 </div>
-
             </div>
-
-
         </div>
     </div>
 </div>
