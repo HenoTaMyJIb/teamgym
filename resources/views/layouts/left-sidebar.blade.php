@@ -2,7 +2,7 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <ul class="sidebar-menu">
-            <li><a href="#"><i class="fa fa-users"></i>Gymnasts</a></li>
+            <li><a href="#"><i class="fa fa-users"></i>{{ trans('global.gymnasts') }}</a></li>
             <li><a href="#"><i class="fa fa-list-alt"></i>Teams</a></li>
             <li><a href="#"><i class="fa fa-bell-o"></i>Competitions</a></li>
             <li><a href="#"><i class="fa fa-table"></i>Elements</a></li>

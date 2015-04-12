@@ -17,7 +17,6 @@ class ClubsController extends Controller {
 	{
 		$clubs = Club::all();
 
-
         return view('clubs.index', compact('clubs'));
 	}
 
