@@ -48,7 +48,7 @@
                     <div class="col-xs-2">
                         {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
                         {!! Form::close() !!}
-                        <a href="{{ url('age-groups')}}" class="btn btn-default">Back</a>
+                        <a href="{{ URL::previous() }}" class="btn btn-default">Back</a>
                     </div>
                     <div class="col-xs-10">
                         {!! delete_form(['age-groups.destroy', $ageGroup->slug]) !!}

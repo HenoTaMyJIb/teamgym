@@ -45,6 +45,7 @@
             </div>
             <div class="box-footer">
                 {!! Form::submit('Add age group', ['class' => 'btn btn-success']) !!}
+                <a href="{{ URL::previous() }}" class="btn btn-default">Back</a>
             </div>
             {!! Form::close() !!}
         </div>

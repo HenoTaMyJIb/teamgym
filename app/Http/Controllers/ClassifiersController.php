@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Classifier;
+use App\Models\Classifier;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 

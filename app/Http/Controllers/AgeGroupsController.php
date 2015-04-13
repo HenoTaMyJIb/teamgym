@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\AgeGroup;
+use App\Models\AgeGroup;
 use App\Http\Requests;
 use App\Http\Requests\AgeGroupRequest;
 use Illuminate\Http\Request;
@@ -69,13 +69,12 @@ class AgeGroupsController extends Controller {
 	 * Update the specified resource in storage.
 	 *
      * @param  int  $slug
-     * @param  Request  $request
+     * @param  AgeGroupRequest  $request
 	 * @return Response
 	 */
 	public function update($slug, AgeGroupRequest $request)
 	{
         $ageGroup = AgeGroup::where('slug', '=', $slug)->firstOrFail();
-
         $ageGroup->update($request->all());
 
         return redirect('age-groups');
