@@ -5,16 +5,16 @@
     <title>AdminLTE 2 | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    {!! Html::style("theme/bootstrap/css/bootstrap.min.css") !!}
+    {!! Html::style("theme/adminLTE/bootstrap/css/bootstrap.min.css") !!}
     <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
           type="text/css"/>
     <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
     <!-- Theme style -->
-    {!! Html::style("theme/dist/css/AdminLTE.min.css") !!}
+    {!! Html::style("theme/adminLTE/dist/css/AdminLTE.min.css") !!}
     <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
-    {!! Html::style("theme/dist/css/skins/skin-green.css") !!}
+    {!! Html::style("theme/adminLTE/dist/css/skins/skin-green.css") !!}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -210,14 +210,14 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 2.1.3 -->
-{!! Html::script("theme/plugins/jQuery/jQuery-2.1.3.min.js") !!}
+{!! Html::script("theme/adminLTE/plugins/jQuery/jQuery-2.1.3.min.js") !!}
 <!-- Bootstrap 3.3.2 JS -->
-{!! Html::script("theme/bootstrap/js/bootstrap.min.js") !!}}
+{!! Html::script("theme/adminLTE/bootstrap/js/bootstrap.min.js") !!}}
 <!-- SlimScroll -->
-{!! Html::script("theme/plugins/slimScroll/jquery.slimScroll.min.js") !!}
+{!! Html::script("theme/adminLTE/plugins/slimScroll/jquery.slimScroll.min.js") !!}
 <!-- FastClick -->
-{!! Html::script("theme/plugins/fastclick/fastclick.min.js") !!}
+{!! Html::script("theme/adminLTE/plugins/fastclick/fastclick.min.js") !!}
 <!-- AdminLTE App -->
-{!! Html::script("theme/dist/js/app.min.js") !!}
+{!! Html::script("theme/adminLTE/dist/js/app.min.js") !!}
 </body>
 </html>

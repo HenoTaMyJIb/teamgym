@@ -19,7 +19,7 @@
                     </thead>
                     @foreach ($clubs as $club)
                         <tr>
-                            <td>{{ $club->name }}</td>
+                            <td><a href="{{ url('clubs/' . $club->slug) }}">{{ $club->name }}</a></td>
                             <td>{{ $club->email }}</td>
                             <td>{{ $club->phone }}</td>
                             <td>{{ $club->address }}</td>
@@ -28,7 +28,11 @@
                 </table>
             </div>
             <div class="box-footer">
-                <button class="btn btn-success">New club</button>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn btn-success pull-right">New club</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
