@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class ClubsController extends Controller {
 
+    /**
+     * Create a new controller instance.
+     *
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -43,12 +52,13 @@ class ClubsController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  string  $slug
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug)
 	{
-		//
+        $club = Club::whereSlug($slug)->firstOrFail();
+		return view('clubs.show', compact('club'));
 	}
 
 	/**

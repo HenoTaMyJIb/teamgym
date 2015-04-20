@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClubsTable extends Migration {
+class CreateFilesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,11 @@ class CreateClubsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('clubs', function(Blueprint $table)
+		Schema::create('files', function(Blueprint $table)
 		{
 			$table->increments('id');
             $table->string('name');
-            $table->string('address');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('slug')->unique();
-            $table->softDeletes();
+            $table->string('path');
 			$table->timestamps();
 		});
 	}
@@ -32,7 +28,7 @@ class CreateClubsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('clubs');
+		Schema::drop('files');
 	}
 
 }

@@ -14,15 +14,22 @@ class CreateCoachesTable extends Migration {
 	{
 		Schema::create('coaches', function(Blueprint $table)
 		{
-			$table->increments('id');
+            $table->increments('id');
+            $table->integer('person_id')->unsigned();
             $table->integer('club_id')->unsigned();
-            $table->string('category')->nullable();
-            $table->string('status');
-			$table->timestamps();
+            $table->string('coach_category')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('club_id')
-                   ->references('id')
-                   ->on('clubs');
+                ->references('id')
+                ->on('clubs')
+                ->onDelete('cascade');
+
+            $table->foreign('person_id')
+                ->references('id')
+                ->on('people')
+                ->onDelete('cascade');
 		});
 	}
 

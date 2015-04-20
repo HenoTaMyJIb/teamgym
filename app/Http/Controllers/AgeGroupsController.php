@@ -8,6 +8,15 @@ use App\Http\Controllers\Controller;
 
 class AgeGroupsController extends Controller {
 
+    /**
+     * Create a new controller instance.
+     *
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -61,7 +70,7 @@ class AgeGroupsController extends Controller {
 	 */
 	public function edit($slug)
 	{
-        $ageGroup = AgeGroup::where('slug', '=', $slug)->firstOrFail();
+        $ageGroup = AgeGroup::whereSlug($slug)->firstOrFail();
 		return view('age-groups.edit', compact('ageGroup'));
 	}
 
@@ -74,7 +83,7 @@ class AgeGroupsController extends Controller {
 	 */
 	public function update($slug, AgeGroupRequest $request)
 	{
-        $ageGroup = AgeGroup::where('slug', '=', $slug)->firstOrFail();
+        $ageGroup = AgeGroup::whereSlug($slug)->firstOrFail();
         $ageGroup->update($request->all());
 
         return redirect('age-groups');
@@ -89,7 +98,7 @@ class AgeGroupsController extends Controller {
 	 */
 	public function destroy($slug, Request $request)
 	{
-        $ageGroup = AgeGroup::where('slug', '=', $slug)->firstOrFail();
+        $ageGroup = AgeGroup::whereSlug($slug)->firstOrFail();
         $ageGroup->delete();
 
         return redirect('age-groups');

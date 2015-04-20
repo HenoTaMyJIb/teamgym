@@ -15,7 +15,7 @@ class ClassifierSeeder extends \Illuminate\Database\Seeder{
         \App\Models\ClassifierItem::create(['code' => 'trio', 'name' => 'Trio', 'classifier_id' => $classifier->id]);
         \App\Models\ClassifierItem::create(['code' => 'full', 'name' => 'Full', 'classifier_id' => $classifier->id]);
 
-        $classifier = \App\Models\Classifier::where('code', '=', 'team_type')->first();
+        $classifier = \App\Models\Classifier::where('code', '=', 'gender_category')->first();
         \App\Models\ClassifierItem::create(['code' => 'women', 'name' => 'Women', 'classifier_id' => $classifier->id]);
         \App\Models\ClassifierItem::create(['code' => 'men', 'name' => 'Men', 'classifier_id' => $classifier->id]);
         \App\Models\ClassifierItem::create(['code' => 'mix', 'name' => 'Mix', 'classifier_id' => $classifier->id]);

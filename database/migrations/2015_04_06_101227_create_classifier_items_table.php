@@ -23,7 +23,8 @@ class CreateClassifierItemsTable extends Migration {
 
             $table->foreign('classifier_id')
                 ->references('id')
-                ->on('classifiers');
+                ->on('classifiers')
+                ->onDelete('cascade');
 		});
 	}
 

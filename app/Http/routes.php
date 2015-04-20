@@ -18,14 +18,16 @@ function delete_form($routeParams, $label = 'Delete')
     return $form .= Form::close();
 }
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'WelcomeController@index');
+Route::get('/welcome', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::get('clubs', 'ClubsController@index');
+//Route::get('clubs', 'ClubsController@index');
 
 Route::get('classifiers', 'ClassifiersController@index');
 
+Route::resource('clubs', 'ClubsController');
 Route::resource('age-groups', 'AgeGroupsController');
 //Route::get('age-groups', 'AgeGroupsController@index');
 //Route::get('age-groups/create', 'AgeGroupsController@create');

@@ -15,13 +15,12 @@ class CreateAgeGroupsTable extends Migration {
 		Schema::create('age_groups', function(Blueprint $table)
 		{
 			$table->increments('id');
-//            $table->string('code');
             $table->string('name');
             $table->string('rule_type');
             $table->string('gymnasts_amount');
             $table->integer('min_year');
             $table->integer('max_year');
-            $table->string('slug');
+            $table->string('slug')->unique();
 			$table->timestamps();
             $table->softDeletes();
 		});
