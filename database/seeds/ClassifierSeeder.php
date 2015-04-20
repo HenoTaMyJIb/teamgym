@@ -6,7 +6,7 @@ class ClassifierSeeder extends \Illuminate\Database\Seeder{
     {
         DB::table('classifiers')->delete();
         \App\Models\Classifier::create(['code' => 'gymnasts_amount', 'name' => 'Gymnasts amount', 'notes' => 'Defines min and max team members']);
-        \App\Models\Classifier::create(['code' => 'team_type', 'name' => 'Team types', 'notes' => 'Woman, man, mixed']);
+        \App\Models\Classifier::create(['code' => 'gender_category', 'name' => 'Team types', 'notes' => 'Woman, man, mixed']);
         \App\Models\Classifier::create(['code' => 'rule_type', 'name' => 'Rule types', 'notes' => 'Different rules such as UEG or EEVL']);
         \App\Models\Classifier::create(['code' => 'coach_category', 'name' => 'Coach categories', 'notes' => 'Coach categories']);
 
