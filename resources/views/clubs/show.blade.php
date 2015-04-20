@@ -10,63 +10,86 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h3>Coaches</h3>
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Category</td>
-                                <td>Teams</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($club->coaches as $coach)
+                            <div class="box box-solid">
+                            <div class="box-header">
+                                <h3 class="box-title">Coaches</h3>
+                            </div>
+                            <div class="box-body">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Category</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($club->coaches as $coach)
+                                            <tr>
+                                                <td>{{ $coach->person->getFullName() }}</td>
+                                                <td></td>
+                                                <td>{{ $coach->person->email }}</td>
+                                                <td>{{ $coach->person->phone }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="box-footer">
+                                <a href="{{url('coaches/create')}}" class="btn btn-success">New coach</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box box-solid">
+                            <div class="box-header">
+                                <h3 class="box-title">Gymnasts</h3>
+                            </div>
+                            <div class="box-body">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
                                     <tr>
-                                        <td>{{ $coach->person->getFullName() }}</td>
-                                        <td></td>
-                                        <td></td>
+                                        <th>Name</th>
+                                        <th>Coaches</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="box-footer">
+                                <button class="btn btn-success">New gymnast</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <h3>Teams</h3>
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Category</td>
-                                <td>Coaches</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
+                        <div class="box box-solid">
+                            <div class="box-header">
+                                <h3 class="box-title">Judges</h3>
+                            </div>
+                            <div class="box-body">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="box-footer">
+                                <button class="btn btn-success">New judge</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h3>Gymnasts</h3>
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Coaches</td>
-                                <td>Team</td>
-                            </tr>
-                            </thead>
-                            <tbody>
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
             </div>
         </div>

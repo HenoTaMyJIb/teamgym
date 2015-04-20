@@ -29,6 +29,9 @@ Route::get('classifiers', 'ClassifiersController@index');
 
 Route::resource('clubs', 'ClubsController');
 Route::resource('age-groups', 'AgeGroupsController');
+Route::resource('coaches', 'CoachesController');
+Route::resource('gymnasts', 'GymnastsController');
+Route::resource('judges', 'JudgesController');
 //Route::get('age-groups', 'AgeGroupsController@index');
 //Route::get('age-groups/create', 'AgeGroupsController@create');
 //Route::get('age-groups/{id}/edit', 'AgeGroupsConstroller@edit');
