@@ -15,8 +15,8 @@ class CreateCoachesTable extends Migration {
 		Schema::create('coaches', function(Blueprint $table)
 		{
             $table->increments('id');
-            $table->integer('person_id')->unsigned();
-            $table->integer('club_id')->unsigned();
+            $table->integer('person_id')->unsigned()->nullable();
+            $table->integer('club_id')->unsigned()->nullable();
             $table->string('coach_category')->nullable();
             $table->timestamps();
             $table->softDeletes();

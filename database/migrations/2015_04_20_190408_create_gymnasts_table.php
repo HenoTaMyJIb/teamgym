@@ -14,9 +14,9 @@ class CreateGymnastsTable extends Migration {
 	{
 		Schema::create('gymnasts', function(Blueprint $table)
 		{
-            $table->integer('person_id')->unsigned();
-            $table->integer('club_id')->unsigned();
-			$table->increments('id');
+            $table->increments('id');
+            $table->integer('person_id')->unsigned()->nullable();
+            $table->integer('club_id')->unsigned()->nullable();
 			$table->timestamps();
             $table->softDeletes();
 

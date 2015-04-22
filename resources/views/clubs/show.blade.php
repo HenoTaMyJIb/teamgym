@@ -27,7 +27,7 @@
                                     <tbody>
                                         @foreach($club->coaches as $coach)
                                             <tr>
-                                                <td>{{ $coach->person->getFullName() }}</td>
+                                                <td><a href="{{ url('coaches/' . $coach->id .'/edit') }}">{{ $coach->person->getFullName() }}</a></td>
                                                 <td></td>
                                                 <td>{{ $coach->person->email }}</td>
                                                 <td>{{ $coach->person->phone }}</td>
@@ -88,9 +88,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>

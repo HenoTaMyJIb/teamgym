@@ -193,6 +193,8 @@
 
     <!-- Main content -->
     <section class="content">
+        @include('flash::message')
+
         @yield('content')
     </section>
     <!-- /.content -->
@@ -212,7 +214,7 @@
 <!-- jQuery 2.1.3 -->
 {!! Html::script("theme/adminLTE/plugins/jQuery/jQuery-2.1.3.min.js") !!}
 <!-- Bootstrap 3.3.2 JS -->
-{!! Html::script("theme/adminLTE/bootstrap/js/bootstrap.min.js") !!}}
+{!! Html::script("theme/adminLTE/bootstrap/js/bootstrap.min.js") !!}
 <!-- SlimScroll -->
 {!! Html::script("theme/adminLTE/plugins/slimScroll/jquery.slimScroll.min.js") !!}
 <!-- FastClick -->

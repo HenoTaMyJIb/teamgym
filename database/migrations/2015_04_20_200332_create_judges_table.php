@@ -15,10 +15,9 @@ class CreateJudgesTable extends Migration {
 		Schema::create('judges', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('person_id')->unsigned();
-            $table->string('judge_category');
-            $table->integer('club_id')->unsigned();
-            $table->string('slug');
+            $table->integer('person_id')->unsigned()->nullable();
+            $table->string('judge_category')->nullable();
+            $table->integer('club_id')->unsigned()->nullable();
 			$table->timestamps();
             $table->softDeletes();
 

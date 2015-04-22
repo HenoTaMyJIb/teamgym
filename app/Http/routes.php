@@ -27,6 +27,9 @@ Route::get('home', 'HomeController@index');
 
 Route::get('classifiers', 'ClassifiersController@index');
 
+Route::get('clubs/{club}/coach', 'CoachesController@create');
+Route::post('coaches/{club}', 'CoachesController@store');
+
 Route::resource('clubs', 'ClubsController');
 Route::resource('age-groups', 'AgeGroupsController');
 Route::resource('coaches', 'CoachesController');

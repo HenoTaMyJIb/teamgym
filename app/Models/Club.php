@@ -9,4 +9,14 @@ class Club extends Model {
         return $this->hasMany('App\Models\Coach');
 	}
 
+    public function gymnasts()
+    {
+        return $this->hasMany('App\Models\Gymnast');
+    }
+
+    public function judges()
+    {
+        return $this->hasMany('App\Models\Judge');
+    }
+
 }

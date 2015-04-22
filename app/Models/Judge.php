@@ -3,13 +3,18 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Gymnast extends Model {
+class Judge extends Model {
 
-    use SoftDeletes;
+	use SoftDeletes;
+
+    protected $fillable = [
+        'judge_category',
+        'club_id'
+    ];
 
     protected $dates = ['deleted_at'];
 
-	public function person()
+    public function person()
     {
         return $this->belongsTo('App\Models\Person');
     }
