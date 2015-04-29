@@ -48,7 +48,7 @@ class CompetitionsController extends Controller {
 
         $competition = new Competition();
         $competition->name = $data['name'];
-        $competition->addredd = $data['address'];
+        $competition->address = $data['address'];
         $competition->start_date = $startDate;
         $competition->end_date = $endDate;
         $competition->reg_start = $regStart;
