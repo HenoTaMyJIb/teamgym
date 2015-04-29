@@ -15,6 +15,10 @@
     {!! Html::style("theme/adminLTE/dist/css/AdminLTE.min.css") !!}
     <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
     {!! Html::style("theme/adminLTE/dist/css/skins/skin-green.css") !!}
+    <!-- DataTables Bootstrap 1.10.6 -->
+    {!! Html::style("theme/adminLTE/plugins/datatables/css/dataTables.bootstrap.css") !!}
+    <!-- Date range picker -->
+    {!! Html::style("theme/adminLTE/plugins/daterangepicker/daterangepicker-bs3.css") !!}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -219,7 +223,14 @@
 {!! Html::script("theme/adminLTE/plugins/slimScroll/jquery.slimScroll.min.js") !!}
 <!-- FastClick -->
 {!! Html::script("theme/adminLTE/plugins/fastclick/fastclick.min.js") !!}
+<!-- DataTables 1.10.6 -->
+{!! Html::script("theme/adminLTE/plugins/datatables/js/jquery.dataTables.min.js") !!}
+{!! Html::script("theme/adminLTE/plugins/datatables/js/dataTables.bootstrap.min.js") !!}
+<!-- Date range picker -->
+{!! Html::script("theme/adminLTE/plugins/daterangepicker/daterangepicker.js") !!}
 <!-- AdminLTE App -->
 {!! Html::script("theme/adminLTE/dist/js/app.min.js") !!}
+<!-- App -->
+{!! Html::script("js/app.js") !!}
 </body>
 </html>
