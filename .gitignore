@@ -4,3 +4,7 @@
 composer.lock
 .idea/
 composer.lock
+/nbproject/private/
+_ide_helper.php
+nbproject/
+composer.phar
