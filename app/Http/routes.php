@@ -30,15 +30,22 @@ Route::get('classifiers', 'ClassifiersController@index');
 Route::get('clubs/{club}/coach', 'CoachesController@create');
 Route::post('coaches/{club}', 'CoachesController@store');
 
+//Route::get('/gymnasts', 'GymnastsController@index');
+Route::get('clubs/{club}/gymnast', 'GymnastsController@create');
+Route::post('gymnasts/{club}', 'GymnastsController@store');
+
 Route::resource('clubs', 'ClubsController');
 Route::resource('age-groups', 'AgeGroupsController');
 Route::resource('coaches', 'CoachesController');
-Route::resource('gymnasts', 'GymnastsController');
+Route::resource('gymnasts', 'GymnastsController');//vse routy odnoi zapisju
 Route::resource('judges', 'JudgesController');
+Route::resource('competitions', 'CompetitionsController');
+
 //Route::get('age-groups', 'AgeGroupsController@index');
 //Route::get('age-groups/create', 'AgeGroupsController@create');
 //Route::get('age-groups/{id}/edit', 'AgeGroupsConstroller@edit');
 //Route::post('age-groups', 'AgeGroupsController@store');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
