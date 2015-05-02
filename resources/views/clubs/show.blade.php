@@ -15,7 +15,7 @@
                                     <h3 class="box-title">Coaches</h3>
                                 </div>
                                 <div class="box-body">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover data-table">
                                         <thead>
                                         <tr>
                                             <th>Name</th>
@@ -50,7 +50,7 @@
                                     <h3 class="box-title">Gymnasts</h3>
                                 </div>
                                 <div class="box-body">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover data-table">
                                         <thead>
                                         <tr>
                                             <th>Name</th>
@@ -85,17 +85,29 @@
                                     <h3 class="box-title">Judges</h3>
                                 </div>
                                 <div class="box-body">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover data-table">
                                         <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Category</th>
+
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                         </tr>
                                         </thead>
+                                        <tbody>
+                                        @foreach($club->judges as $judge)
+                                            <tr>
+                                                <td><a href="{{ url('judges/' . $judge->id .'/edit') }}">{{ $judge->person->getFullName() }}</a></td>
+
+                                                <td>{{ $judge->person->email }}</td>
+                                                <td>{{ $judge->person->phone }}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                                 <div class="box-footer">
-                                    <button class="btn btn-success">New judge</button>
+                                    <a href="{{url('judges/create')}}" class="btn btn-success">New judge</a>
                                 </div>
                             </div>
                         </div>

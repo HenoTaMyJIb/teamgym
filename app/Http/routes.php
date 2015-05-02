@@ -34,6 +34,11 @@ Route::post('coaches/{club}', 'CoachesController@store');
 Route::get('clubs/{club}/gymnast', 'GymnastsController@create');
 Route::post('gymnasts/{club}', 'GymnastsController@store');
 
+
+Route::get('clubs/{club}/judge', 'JudgesController@create');
+Route::post('judges/{club}', 'JudgesController@store');
+
+
 Route::resource('clubs', 'ClubsController');
 Route::resource('age-groups', 'AgeGroupsController');
 Route::resource('coaches', 'CoachesController');

@@ -1,17 +1,18 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Requests\JudgeRequest;
+use App\Models\Judge;
+use App\Models\Person;
+use App\Models\Club;
 
-use Illuminate\Http\Request;
 
 class JudgesController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 	public function index()
 	{
 		//
@@ -22,20 +23,34 @@ class JudgesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-		//
-	}
+    public function create($slug = null)
+    {
+        if(is_null($slug))
+        {
+            $slug = 'trefoil'; // TODO logged in user club
+        }
+        $club = Club::whereSlug($slug)->firstOrFail();
+
+        return view('judges.create', compact('club'));
+    }
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		//
-	}
+    public function store($slug, JudgeRequest $request)
+    {
+        $club = Club::whereSlug($slug)->firstOrFail();
+        $person = Person::create($request->get('person'));
+        $judge = new Judge();
+
+        $judge->person()->associate($person);
+        $club->gymnasts()->save($judge);
+
+        flash('New judge added');
+        return redirect('clubs/' . $club->slug);
+    }
 
 	/**
 	 * Display the specified resource.
@@ -54,10 +69,12 @@ class JudgesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
-	{
-		//
-	}
+    public function edit($id)
+    {
+        $judge = Judge::findOrFail($id);
+
+        return view('judges.edit', compact('judge'));
+    }
 
 	/**
 	 * Update the specified resource in storage.
@@ -65,10 +82,15 @@ class JudgesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
-		//
-	}
+    public function update($id, JudgeRequest $request)
+    {
+        $judge = Judge::findOrFail($id);
+        $judge->person()->update($request->get('person'));
+        // $gymnast->update($request->get('gymnast'));
+        //dd($request->get('person'));
+        flash('Judge information updated');
+        return redirect('clubs/' . $judge->club->slug);
+    }
 
 	/**
 	 * Remove the specified resource from storage.
