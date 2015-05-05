@@ -32,7 +32,11 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-
+                            <!-- Judge Category Form Input-->
+                            <div class="form-group">
+                                {!! Form::label('judge_category', 'Judge Category:') !!}
+                                {!! Form::text('judge[judge_category]', null, ['class' => 'form-control']) !!}
+                            </div>
                         </div>
                     </div>
                     <div class="row">

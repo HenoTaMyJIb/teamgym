@@ -43,10 +43,10 @@ class JudgesController extends Controller {
     {
         $club = Club::whereSlug($slug)->firstOrFail();
         $person = Person::create($request->get('person'));
-        $judge = new Judge();
+        $judge = Judge::create($request->get('judge'));
 
         $judge->person()->associate($person);
-        $club->gymnasts()->save($judge);
+        $club->judges()->save($judge);
 
         flash('New judge added');
         return redirect('clubs/' . $club->slug);
