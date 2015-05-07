@@ -12,8 +12,8 @@ class ClassifierSeeder extends \Illuminate\Database\Seeder{
 
         DB::table('classifier_items')->delete();
         $classifier = \App\Models\Classifier::where('code', '=', 'gymnasts_amount')->first();
-        \App\Models\ClassifierItem::create(['code' => 'trio', 'name' => 'Trio', 'classifier_id' => $classifier->id]);
-        \App\Models\ClassifierItem::create(['code' => 'full', 'name' => 'Full', 'classifier_id' => $classifier->id]);
+        \App\Models\ClassifierItem::create(['code' => 'full', 'name' => '6 - 12 gymnasts', 'classifier_id' => $classifier->id]);
+        \App\Models\ClassifierItem::create(['code' => 'trio', 'name' => '3 - 5 gymnasts', 'classifier_id' => $classifier->id]);
 
         $classifier = \App\Models\Classifier::where('code', '=', 'gender_category')->first();
         \App\Models\ClassifierItem::create(['code' => 'women', 'name' => 'Women', 'classifier_id' => $classifier->id]);

@@ -7,6 +7,11 @@ class Competition extends Model
 {
 
     protected $dates = ['start_date', 'end_date', 'reg_start', 'reg_end'];
+    
+    public function teams()
+    {
+        return $this->hasMany('App\Models\Team');
+    }
 
     public function getStartDateAttribute($date)
     {

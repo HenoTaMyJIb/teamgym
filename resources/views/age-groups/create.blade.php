@@ -30,14 +30,14 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <div class="form-group">
-                            {!! Form::label('rule_type', 'Rule type:') !!}
-                            {!! Form::select('rule_type', ['mini' => 'Mini EEVL', 'youth' => 'Youth EEVL', 'ueg' => 'UEG'], null, ['class' => 'form-control']) !!}
+                            {!! Form::label('rule_type', 'Code of Points:') !!}
+                            {!! Form::select('rule_type', $rules, null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             {!! Form::label('gymnasts_amount', 'Gymnasts amount:') !!}
-                            {!! Form::select('gymnasts_amount', ['full' => 'Full', 'trio' => 'Trio'], null, ['class' => 'form-control']) !!}
+                            {!! Form::select('gymnasts_amount', $amount, null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>

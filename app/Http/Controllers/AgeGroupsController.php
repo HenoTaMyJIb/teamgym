@@ -36,7 +36,9 @@ class AgeGroupsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('age-groups.create');
+                $amount = \App\Models\Classifier::ofCode('gymnasts_amount')->first()->items()->lists('name', 'code');
+                $rules = \App\Models\Classifier::ofCode('rule_type')->first()->items()->lists('name', 'code');
+		return view('age-groups.create', compact(['amount', 'rules']));
 	}
 
 	/**
@@ -70,8 +72,10 @@ class AgeGroupsController extends Controller {
 	 */
 	public function edit($slug)
 	{
+            $amount = \App\Models\Classifier::ofCode('gymnasts_amount')->first()->items()->lists('name', 'code');
+                $rules = \App\Models\Classifier::ofCode('rule_type')->first()->items()->lists('name', 'code');
         $ageGroup = AgeGroup::whereSlug($slug)->firstOrFail();
-		return view('age-groups.edit', compact('ageGroup'));
+		return view('age-groups.edit', compact(['ageGroup', 'amount', 'rules']));
 	}
 
 	/**

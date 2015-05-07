@@ -5,7 +5,12 @@ use Illuminate\Database\Eloquent\Model;
 class Classifier extends Model {
 
     public function items(){
-        return $this->hasMany('App\ClassifierItem');
+        return $this->hasMany('App\Models\ClassifierItem');
 	}
+        
+    public function scopeOfCode($query, $code) 
+    {
+        return $query->whereCode($code);
+    }
 
 }
