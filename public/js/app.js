@@ -29,7 +29,7 @@ $(document).ready(function(){
     if($('.date-range').length > 0) {
         $('.date-range').each(function (){
             $(this).daterangepicker({
-                format: 'YYYY-MM-DD'
+                format: 'DD.MM.YYYY'
             });
         });
     }
