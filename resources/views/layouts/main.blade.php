@@ -227,7 +227,9 @@
 {!! Html::script("theme/adminLTE/plugins/datatables/js/jquery.dataTables.min.js") !!}
 {!! Html::script("theme/adminLTE/plugins/datatables/js/dataTables.bootstrap.min.js") !!}
 <!-- Date range picker -->
+{!! Html::script("theme/adminLTE/plugins/daterangepicker/moment.js") !!}
 {!! Html::script("theme/adminLTE/plugins/daterangepicker/daterangepicker.js") !!}
+
 <!-- AdminLTE App -->
 {!! Html::script("theme/adminLTE/dist/js/app.min.js") !!}
 <!-- App -->

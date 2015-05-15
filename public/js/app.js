@@ -5,6 +5,16 @@ $(document).ready(function(){
         });
     }
 
+    if($('.date-single').length > 0) {
+        $('.date-single').each(function (){
+            $(this).daterangepicker({
+                singleDatePicker:true,
+                showDropdowns:true,
+                format: 'DD.MM.YYYY'
+            });
+        });
+    }
+
     if($('.datetime-range').length > 0) {
         $('.datetime-range').each(function (){
             $(this).daterangepicker({
@@ -19,8 +29,10 @@ $(document).ready(function(){
     if($('.date-range').length > 0) {
         $('.date-range').each(function (){
             $(this).daterangepicker({
-                format: 'DD.MM.YYYY'
+                format: 'YYYY-MM-DD'
             });
         });
     }
+
+
 });

@@ -9,7 +9,10 @@ class Person extends Model {
         'last_name',
         'code',
         'phone',
-        'email'
+        'email',
+        'country',
+        'birth_day',
+        'geneder'
     ];
 
 	public function getFullName()

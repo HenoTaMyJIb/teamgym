@@ -7,9 +7,16 @@
                 <div class="box-header">
                     <h3 class="box-title">Edit:{!!$gymnast->person->getFullName()!!}</h3>
                 </div>
-                {!! Form::model($gymnast,['method' => 'PATCH', 'action' => ['GymnastsController@update', $gymnast->id]]) !!}
-                @include('..people._form',['submitButtonText'=>'Update Gymnast'])
-                {!! Form::close() !!}
+                <div class="box-body">
+                    {!! Form::model($gymnast,['method' => 'PATCH', 'action' => ['GymnastsController@update',
+                    $gymnast->id]]) !!}
+                    @include('..people._form')
+                    <div class="box-footer">
+                        {!! Form::submit('Update', ['class' => 'btn btn-success']) !!}
+                        <a href="{{ URL::previous() }}" class="btn btn-default">Back</a>
+                    </div>
+                    {!! Form::close() !!}
+                </div>
             </div>
         </div>
     </div>
