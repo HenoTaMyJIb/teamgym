@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Person extends Model {
 
@@ -33,6 +34,15 @@ class Person extends Model {
     public function judge()
     {
         return $this->hasOne('App\Models\Judge');
+    }
+
+    public function getBirthDayAttribute($date)
+    {
+        return Carbon::parse($date)->format('d.m.Y');
+    }
+    public function setBirthDayAttribute($date)
+    {
+        $this->attributes['birth_day'] = Carbon::createFromFormat('d.m.Y', $date);
     }
 
 }
