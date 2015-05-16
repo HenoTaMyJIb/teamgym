@@ -1,442 +1,488 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
+<html>
+
+<head><!-- START HEAD -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Home | Nova</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <!-- START TITLE -->
+    <title>FLAT ASPHALT - Onepage Parallax HTML Tempalte</title>
+    <!-- END TITLE -->
 
-    {!! Html::style("theme/nova/css/bootstrap.min.css") !!}
-    {!! Html::style("theme/nova/css/bootstrap-responsive.min.css") !!}
-    {!! Html::style("theme/nova/css/font-awesome.min.css") !!}
-    {!! Html::style("theme/nova/css/main.css") !!}
-    {!! Html::style("theme/nova/css/sl-slide.css") !!}
+    <!-- START META, DESCRIPTION, KEYWORDS, AUTHOR -->
+    <meta name="description" content="A Template by Carino Technologies"/>
+    <meta name="keywords" content="HTML, CSS, JavaScript"/>
+    <meta name="author" content="carinotechnologies"/>
+    <!-- END META, DESCRIPTION, KEYWORDS, AUTHOR -->
 
-    {!! Html::script("theme/nova/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js") !!}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- START THEME STYLE -->
+    <link rel="stylesheet" type="text/css" href="{{ url('theme/flatAsphalt/css/normal.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('theme/flatAsphalt/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('theme/flatAsphalt/css/headhesive.css') }}">
+    <link href="{{ url('theme/flatAsphalt/css/animate.css') }}" rel="stylesheet">
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="{{ url('theme/nova/images/ico/favicon.ico') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url('theme/nova/images/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url('theme/nova/images/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url('theme/nova/images/ico/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ url('theme/nova/images/ico/apple-touch-icon-57-precomposed.png') }}">
+    <!-- END THEME STYLE -->
+
+    <!-- START FONTELLO ICONS STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="{{ url('theme/flatAsphalt/css/fontello.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('theme/flatAsphalt/css/fontello-ie7.css') }}">
+    <!-- END FONTELLO ICONS STYLESHEET -->
+
+    <!-- START MAGNIFIC POPUP STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="{{ url('theme/flatAsphalt/css/magnific-popup.css') }}">
+    <!-- END MAGNIFIC POPUP STYLESHEET -->
+
+    <!-- LOAD GOOGLE FONT OPEN SANS -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700" rel="stylesheet"
+          type="text/css">
+    <!-- END GOOGLE FONT OPEN SANS -->
+
+
+    <!-- START AJAX WEBFONTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <!-- END AJAX WEBFONTS -->
+
+    <!-- START MOBILE DETECT -->
+    <script>if (/mobile/i.test(navigator.userAgent))
+            document.documentElement.className += ' w-mobile';</script>
+    <!-- END MOBILE DETECT -->
+
+    <!-- START FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url('theme/flatAsphalt/favicon.ico"
+    ')}}>
+    <!-- EDN FAVICON -->
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
 </head>
+<!-- END HEAD -->
+<body> <!-- START BODY TAG -->
 
-<body>
+<!-- START HEADER -->
+<!-- SCROLL DIV #boxscroll by nicescroll -->
 
-<!--Header-->
-<header class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a id="logo" class="pull-left" href="index.html"></a>
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav">
-                    <li class="active"><a href="index.html">Avaleht</a></li>
-                    <li><a href="about-us.html">Meist</a></li>
-                    <li><a href="services.html">Uudised</a></li>
-                    <li><a href="portfolio.html">Võistlused</a></li>
-                    <li><a href="portfolio.html">Koolitused</a></li>
-                    <li class="login">
-                        <a data-toggle="modal" href="{{ url('home') }}"><i class="icon-lock"></i></a>
-                    </li>
-                </ul>
-            </div><!--/.nav-collapse -->
+<div tabindex="1000" style="overflow-y: auto;" id="boxscroll">
+
+
+<!-- CHANGEABLE UNIQUE SECTOIN ID -->
+<section id="home">
+
+    <!-- START FIXED HEADER DIV -->
+    <div class="banner">
+        <!-- START CONTAINER -->
+        <div class="w-container container">
+            <div class="w-row">
+
+                <!-- START COLUMN 3 -->
+                <div class="w-col w-col-3 logo">
+                    <!-- START LOGO -->
+                    <a href="#">
+                        <img class="logo" src="{{ url('img/teamgym/logo_small.png') }}" alt="FLAT ASPHALT"
+                             style="max-width: 90px; margin-top: 5px">
+                    </a>
+                    <!-- END LOGO -->
+                </div>
+                <!-- END COLUMN 3 -->
+
+                <!-- START COLUMN 9 -->
+                <div class="w-col w-col-9">
+
+                    <!-- START NAVIGATION -->
+                    <div class="w-nav navbar" data-collapse="medium" data-animation="default" data-duration="400"
+                         data-contain="1">
+                        <div class="w-container nav"><!-- START CONTAINER -->
+
+                            <!-- START NAVIGATION LINKS -->
+                            <nav class="w-nav-menu nav-menu" role="navigation">
+
+                                <a class="w-nav-link menu-li" href="#home">HOME</a>
+                                <a class="w-nav-link menu-li" href="#features">ABOUT US</a>
+                                <a class="w-nav-link menu-li" href="#competitions">COMPETITIONS</a>
+                                <a class="w-nav-link menu-li" href="#trainings">TRAININGS</a>
+                                <a class="w-nav-link menu-li" href="#features">NEWS</a>
+                                <a class="w-nav-link menu-li" href="#contact">CONTACT</a>
+                                <a class="w-nav-link menu-li" href="{{ url('home') }}">LOGIN</a>
+
+                            </nav>
+                            <!-- END NAVIGATION LINKS -->
+
+                            <!-- START MOBILE NAVIGATION BUTTON * DO NOT DELETE THIS DIV* -->
+                            <div class="w-nav-button">
+                                <div class="w-icon-nav-menu"></div>
+                            </div>
+                            <!-- END MOBILE NAVIGATION BUTTON -->
+
+                        </div>
+                        <!-- END CONTAINER -->
+                    </div>
+                    <!-- END NAVIGATION -->
+                </div>
+                <!-- END COLUMN 9 -->
+            </div>
         </div>
+        <!-- END CONTAINER -->
     </div>
-</header>
-<!-- /header -->
-
-<!--Slider-->
-<section id="slide-show">
-    <div id="slider" class="sl-slider-wrapper">
-
-        <!--Slider Items-->
-        <div class="sl-slider">
-            <!--Slider Item1-->
-            <div class="sl-slide item1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-                <div class="sl-slide-inner">
-                    <div class="container">
-                        <img class="pull-right" src="{{ url('theme/nova/images/sample/slider/img1.png') }}" alt="" />
-                        <h2>Creative Ideas</h2>
-                        <h3 class="gap">Tincidunt condimentum eros</h3>
-                    </div>
-                </div>
-            </div>
-            <!--/Slider Item1-->
-
-            <!--Slider Item2-->
-            <div class="sl-slide item2" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-                <div class="sl-slide-inner">
-                    <div class="container">
-                        <img class="pull-right" src="{{ url('theme/nova/images/sample/slider/img2.png') }}" alt="" />
-                        <h2>Planning &amp; Analysis</h2>
-                        <h3 class="gap">Aenean ultricies mi vitast</h3>
-                    </div>
-                </div>
-            </div>
-            <!--Slider Item2-->
-
-            <!--Slider Item3-->
-            <div class="sl-slide item3" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="container">
-                        <img class="pull-right" src="{{ url('theme/nova/images/sample/slider/img3.png')}}" alt="" />
-                        <h2>Unique Solutions</h2>
-                        <h3 class="gap">Breatures who have been utterly</h3>
-                    </div>
-                </div>
-            </div>
-            <!--Slider Item3-->
-
-        </div>
-        <!--/Slider Items-->
-
-        <!--Slider Next Prev button-->
-        <nav id="nav-arrows" class="nav-arrows">
-            <span class="nav-arrow-prev"><i class="icon-angle-left"></i></span>
-            <span class="nav-arrow-next"><i class="icon-angle-right"></i></span>
-        </nav>
-        <!--/Slider Next Prev button-->
-
-    </div>
-    <!-- /slider-wrapper -->
+    <!-- END FIXED HEADER DIV -->
 </section>
-<!--/Slider-->
+<!-- END SECTION -->
+<!-- END HEADER -->
 
-<section class="main-info">
-    <div class="container">
-        <div class="row-fluid">
-            <div class="span9">
-                <h4>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</h4>
-                <p class="no-margin">Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet</p>
+<div class="header-parallax" data-stellar-background-ratio="0.5">
+    <div class="slidersection">
+
+
+        <div class="overlay">
+
+            <div class="center fixed-content">
+                <div class="center-fix">
+                    <h1 class="underline animated fadeInDown">TEAMGYM ESTONIA</h1>
+                    <h4 class="animated fadeInUp delay-05s" style="margin-bottom: 50px;">
+                        <strong class="green">T</strong>: together <strong class="green">E</strong>: everyone
+                        <strong class="green">A</strong>: achieves <strong class="green">M</strong>: more
+                    </h4>
+                    <a class="button animated fadeInUp delay-1s" href="index.html#features"
+                       style="margin-right: 20px;"><span><i class="cogelegance-icons-"></i></span>Teamgym</a><a
+                        class="button border animated fadeInUp delay-1s" href="index.html#contact">Get in Touch</a>
+                </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<!--Services-->
-<section id="services">
-    <div class="container">
-        <div class="center gap">
-            <h3>What We Offer</h3>
-            <p class="lead">Look at some of the recent projects we have completed for our valuble clients</p>
-        </div>
 
-        <div class="row-fluid">
-            <div class="span4">
-                <div class="media">
-                    <div class="pull-left">
-                        <i class="icon-globe icon-medium"></i>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Web Design</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    </div>
-                </div>
+<!--///////////////////////////////////////////////////////
+
+       // End slider section
+
+       //////////////////////////////////////////////////////////-->
+
+
+<div id="features">
+
+    <div class="row-back">
+
+        <div class="w-container wrap">
+
+            <div class="center">
+
+                <h2 class="underline">OUR TEAMGYM CLUBS IN <span class="green">ESTONIA</span></h2>
+
+                <p><strong>At the moment</strong> there are 4 teamgym clubs in our country.</p>
+
             </div>
 
-            <div class="span4">
-                <div class="media">
-                    <div class="pull-left">
-                        <i class="icon-thumbs-up-alt icon-medium"></i>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Graphic Design</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    </div>
+            <div class="w-col w-col-3 wp1">
+
+                <div class="icon-box">
+
+                    <i class="cupelegance-icons-"></i>
+
+                    <h4 class="icons-heading">SK TREFOIL</h4>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                        ridiculus mus. Donec quam felis, ultricies nec.
+                    </p>
+
                 </div>
+
             </div>
 
-            <div class="span4">
-                <div class="media">
-                    <div class="pull-left">
-                        <i class="icon-leaf icon-medium icon-rounded"></i>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Email Marketing</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="w-col w-col-3 wp1 delay-05s">
 
-        <div class="gap"></div>
+                <div class="icon-box">
 
-        <div class="row-fluid">
-            <div class="span4">
-                <div class="media">
-                    <div class="pull-left">
-                        <i class="icon-shopping-cart icon-medium"></i>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Ecommerce Solution</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    </div>
+                    <i class="paramselegance-icons-"></i>
+
+                    <h4 class="icons-heading">TLÜ</h4>
+
+                    <p>
+
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                        ridiculus mus. Donec quam felis, ultricies nec.
+
+                    </p>
+
                 </div>
+
             </div>
 
-            <div class="span4">
-                <div class="media">
-                    <div class="pull-left">
-                        <i class="icon-globe icon-medium"></i>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">SEO &amp; Solution</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    </div>
+            <div class="w-col w-col-3 wp1 delay-1s">
+
+                <div class="icon-box">
+
+                    <i class="thumbs-upelegance-icons-"></i>
+
+                    <h4 class="icons-heading">SK RONDAAT</h4>
+
+                    <p>
+
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                        ridiculus mus. Donec quam felis, ultricies nec.
+
+                    </p>
+
                 </div>
+
             </div>
 
-            <div class="span4">
-                <div class="media">
-                    <div class="pull-left">
-                        <i class="icon-globe icon-medium"></i>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Bootstrap</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    </div>
+            <div class="w-col w-col-3 wp1 delay-1-5s">
+
+                <div class="icon-box">
+
+                    <i class="thumbs-upelegance-icons-"></i>
+
+                    <h4 class="icons-heading">VK AKROS</h4>
+
+                    <p>
+
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                        ridiculus mus. Donec quam felis, ultricies nec.
+
+                    </p>
+
                 </div>
+
             </div>
+
         </div>
 
     </div>
-</section>
-<!--/Services-->
 
-<section id="recent-works">
-    <div class="container">
+</div>
+
+
+<div class="row-gree">
+
+    <div class="w-container wrap-normal">
+
         <div class="center">
-            <h3>Our Recent Works</h3>
-            <p class="lead">Look at some of the recent projects we have completed for our valuble clients</p>
+
+            <h1 class="underline">SOME TEXT HERE</h1>
+
+            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores debitis dignissimos ea eligendi explicabo, iste itaque molestias nihil nulla, numquam quod recusandae repellendus repudiandae sit soluta tempore totam veniam.</h4>
+
+            <p>lorem ipsum metea data, what a lovely traeat to eyes</p>
+
         </div>
-        <div class="gap"></div>
-        <ul class="gallery col-4">
-            <!--Item 1-->
-            <li>
-                <div class="preview">
-                    <img alt=" " src="{{ url('theme/nova/images/portfolio/thumb/item1.jpg') }}">
-                    <div class="overlay">
-                    </div>
-                    <div class="links">
-                        <a data-toggle="modal" href="#modal-1"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
-                    </div>
-                </div>
-                <div class="desc">
-                    <h5>Lorem ipsum dolor sit amet</h5>
-                </div>
-                <div id="modal-1" class="modal hide fade">
-                    <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></a>
-                    <div class="modal-body">
-                        <img src="{{ url('theme/nova/images/portfolio/full/item1.jpg') }}" alt=" " width="100%" style="max-height:400px">
-                    </div>
-                </div>
-            </li>
-            <!--/Item 1-->
 
-            <!--Item 2-->
-            <li>
-                <div class="preview">
-                    <img alt=" " src="{{ url('theme/nova/images/portfolio/thumb/item2.jpg') }}">
-                    <div class="overlay">
-                    </div>
-                    <div class="links">
-                        <a data-toggle="modal" href="#modal-1"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
-                    </div>
-                </div>
-                <div class="desc">
-                    <h5>Lorem ipsum dolor sit amet</h5>
-                </div>
-                <div id="modal-1" class="modal hide fade">
-                    <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></a>
-                    <div class="modal-body">
-                        <img src="{{ url('theme/nova/images/portfolio/full/item2.jpg') }}" alt=" " width="100%" style="max-height:400px">
-                    </div>
-                </div>
-            </li>
-            <!--/Item 2-->
-
-            <!--Item 3-->
-            <li>
-                <div class="preview">
-                    <img alt=" " src="{{ url('theme/nova/images/portfolio/thumb/item3.jpg') }}">
-                    <div class="overlay">
-                    </div>
-                    <div class="links">
-                        <a data-toggle="modal" href="#modal-3"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
-                    </div>
-                </div>
-                <div class="desc">
-                    <h5>Lorem ipsum dolor sit amet</h5>
-                </div>
-                <div id="modal-3" class="modal hide fade">
-                    <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></a>
-                    <div class="modal-body">
-                        <img src="{{ url('theme/nova/images/portfolio/full/item3.jpg') }}" alt=" " width="100%" style="max-height:400px">
-                    </div>
-                </div>
-            </li>
-            <!--/Item 3-->
-
-            <!--Item 4-->
-            <li>
-                <div class="preview">
-                    <img alt=" " src="{{ url('theme/nova/images/portfolio/thumb/item4.jpg') }}">
-                    <div class="overlay">
-                    </div>
-                    <div class="links">
-                        <a data-toggle="modal" href="#modal-4"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
-                    </div>
-                </div>
-                <div class="desc">
-                    <h5>Lorem ipsum dolor sit amet</h5>
-                </div>
-                <div id="modal-4" class="modal hide fade">
-                    <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></a>
-                    <div class="modal-body">
-                        <img src="{{ url('theme/nova/images/portfolio/full/item4.jpg') }}" alt=" " width="100%" style="max-height:400px">
-                    </div>
-                </div>
-            </li>
-            <!--/Item 4-->
-
-        </ul>
     </div>
 
-</section>
+</div>
 
-<section id="clients" class="main">
-    <div class="container">
-        <div class="row-fluid">
-            <div class="span2">
-                <div class="clearfix">
-                    <h4 class="pull-left">OUR PARTNERS</h4>
-                    <div class="pull-right">
-                        <a class="prev" href="#myCarousel" data-slide="prev"><i class="icon-angle-left icon-large"></i></a> <a class="next" href="#myCarousel" data-slide="next"><i class="icon-angle-right icon-large"></i></a>
-                    </div>
-                </div>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+<div class="parallax-back" id="section2" data-stellar-background-ratio="0.5">
+
+    <div class="opcaity">
+
+        <div class="w-container wrap-normal">
+
+            <div class="center">
+
+                <h2><span class="green">WHAT</span> IS TEAMGYM?</h2>
+
+                <p>
+                    TeamGym is a team competition being performed in the three disciplines: floor, tumbling and trampet
+                    (mini-trampolin).
+                    All three disciplines require effective teamwork, excellent technique and spectacular acrobatic
+                    elements.
+                    TeamGym competitions are recognized by very good spirit and atmosphere.
+                </p>
+
             </div>
-            <div class="span10">
-                <div id="myCarousel" class="carousel slide clients">
-                    <!-- Carousel items -->
-                    <div class="carousel-inner">
-                        <div class="active item">
-                            <div class="row-fluid">
-                                <ul class="thumbnails">
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client1.png') }}"></a></li>
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client2.png') }}"></a></li>
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client3.png') }}"></a></li>
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client4.png') }}"></a></li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="item">
-                            <div class="row-fluid">
-                                <ul class="thumbnails">
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client4.png') }}"></a></li>
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client3.png') }}"></a></li>
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client2.png') }}"></a></li>
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client1.png') }}"></a></li>
-                                </ul>
-                            </div>
-                        </div>
+            <div class="w-col w-col-4">
 
-                        <div class="item">
-                            <div class="row-fluid">
-                                <ul class="thumbnails">
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client1.png') }}"></a></li>
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client2.png') }}"></a></li>
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client3.png') }}"></a></li>
-                                    <li class="span3"><a href="#"><img src="{{ url('theme/nova/images/sample/clients/client4.png') }}"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Carousel items -->
+                <div class="icon-box">
+
+                    <img src="{{ url('img/teamgym/floor.png') }}" alt="branding">
+
+                    <h3 class="underline">floor</h3>
+
+                    <p>
+                        Is an optional gymnastic programme, which is performed on a thin mat and to music. It emphasizes
+                        good and smooth teamwork and expressive presentation.
+                    </p>
 
                 </div>
+
             </div>
+
+            <div class="w-col w-col-4">
+
+                <div class="icon-box">
+
+                    <img src="{{ url('img/teamgym/trampette.png') }}" alt="motion">
+
+                    <h3 class="underline">trampette</h3>
+
+                    <p>
+                        Teams perform saltos on Trampette with good streaming. A part of the Trampette program is done
+                        using
+                        a vaulting apparatus.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="w-col w-col-4">
+
+                <div class="icon-box">
+
+                    <img src="{{ url('img/teamgym/tumbling.png') }}" alt="print">
+
+                    <h3 class="underline">tumbling</h3>
+
+                    <p>
+                        Teams perform tumbling series on a long tumbling lane with good "streaming" i.e. consecutively
+                        and
+                        close to each other.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
+
+    </div>
+
+</div>
+
+<section id="competitions">
+    <div class="row-gree">
+
+        <div class="w-container wrap-normal">
+
+            <div class="center">
+
+                <h3 class="underline">COMPETITIONS</h3>
+
+                <p>Check our <strong class="red">competitive</strong> prices for our products.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row-back">
+
+        <div class="w-container wrapper">
+
+
+        </div>
+
     </div>
 </section>
 
-<!--Footer-->
-<footer id="footer">
-    <div class="container">
-        <div class="row-fluid">
-            <div class="span5 cp">
-                &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
-            </div>
-            <!--/Copyright-->
+<section id="trainings">
+    <div class="row-gree">
 
-            <div class="span6">
-                <ul class="social pull-right">
-                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon-youtube"></i></a></li>
-                    <li><a href="#"><i class="icon-instagram"></i></a></li>
-                </ul>
+        <div class="w-container wrap-normal">
+
+            <div class="center">
+
+                <h3 class="underline">TRAININGS</h3>
+
+                <p>Check our <strong class="red">competitive</strong> prices for our products.</p>
+
             </div>
 
-            <div class="span1">
-                <a id="gototop" class="gototop pull-right" href="#"><i class="icon-angle-up"></i></a>
+        </div>
+
+    </div>
+
+    <div class="row-back">
+
+        <div class="w-container wrapper">
+
+
+        </div>
+
+    </div>
+</section>
+
+
+<div id="contact">
+
+    <div class="parallax-back" data-stellar-background-ratio="0.5">
+        <div class="opcaity">
+            <div class="w-container wrap">
+
+                <div class="center">
+                    <h1 class="underline">GET IN TOUCH</h1>
+
+                    <p>Feel free to contact us at any time, nam liber tempor cum <br/>soluta nobis eleifend option
+                        congue nihil.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <br/>Aenean commodo
+                        ligula eget dolor.Aenean massa. Cum sociis natoque penatibus et <br/>magnis dis parturient
+                        montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+
+                    <div class="social-footter">
+                        <i class="facebookelegance-icons-"></i>
+                        <i class="twitter-birdelegance-icons-"></i>
+                        <i class="instagramelegance-icons-"></i>
+                    </div>
+
+                </div>
+
             </div>
-            <!--/Goto Top-->
         </div>
     </div>
-</footer>
-<!--/Footer-->
 
-{!! Html::script("theme/nova/js/vendor/jquery-1.9.1.min.js") !!}
-{!! Html::script("theme/nova/js/vendor/bootstrap.min.js") !!}
-{!! Html::script("theme/nova/js/main.js") !!}
-<!-- Required javascript files for Slider -->
-{!! Html::script("theme/nova/js/jquery.ba-cond.min.js") !!}
-{!! Html::script("theme/nova/js/jquery.slitslider.js") !!}
-<!-- /Required javascript files for Slider -->
+</div>
 
-<!-- SL Slider -->
-<script type="text/javascript">
-    $(function() {
-        var Page = (function() {
 
-            var $navArrows = $( '#nav-arrows' ),
-                slitslider = $( '#slider' ).slitslider( {
-                    autoplay : true
-                } ),
+<!--///////////////////////////////////////////////////////
 
-                init = function() {
-                    initEvents();
-                },
-                initEvents = function() {
-                    $navArrows.children( ':last' ).on( 'click', function() {
-                        slitslider.next();
-                        return false;
-                    });
+       // End Contact section
 
-                    $navArrows.children( ':first' ).on( 'click', function() {
-                        slitslider.previous();
-                        return false;
-                    });
-                };
+       //////////////////////////////////////////////////////////-->
 
-            return { init : init };
 
-        })();
+<!--///////////////////////////////////////////////////////
 
-        Page.init();
-    });
-</script>
-<!-- /SL Slider -->
+       // Footer section
+
+       //////////////////////////////////////////////////////////-->
+
+
+<div class="footer row-back">
+    <div class="w-container wrap-normal center">© <strong>Carino Technologies</strong> 2014 - <span class="green">Exclusive</span>
+        On Themeforest
+    </div>
+</div>
+
+<!--///////////////////////////////////////////////////////
+
+// End Footer section
+
+//////////////////////////////////////////////////////////-->
+</div>
+
+<!-- START JQUERY PLUGINS LOAD -->
+<script src="{{ url('theme/flatAsphalt/js/jquery.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/modernizr.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/normal.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/carousels.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/jquery.stellar.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/classie.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/jquery.mixitup.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/testimonials.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/jquery.nicescroll.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/rotating-text.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/jquery.magnific-popup.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/headhesive.min.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/waypoints.min.js') }}"></script>
+<script src="{{ url('theme/flatAsphalt/js/scripts.js') }}"></script>
+
+<!-- END JQUERY PLUGINS LOAD -->
+
 </body>
+
 </html>

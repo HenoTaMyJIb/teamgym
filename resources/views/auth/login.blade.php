@@ -23,7 +23,7 @@
 <body class="login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Nice</b>NAME</a>
+        <a href="{{ url('/')}}"><b>Teamgym</b>ESTONIA</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">

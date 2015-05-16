@@ -182,15 +182,22 @@ padding: 100px 0 90px;
 * PARALLAX CLASSIES
 *******************************/
 
-.parallax-back {
-  background: url(../images/back.png) no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  margin: auto;
+#section2 {
+    background: url(../images/back3.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: auto;
 }
 
+/*.parallax-back {*/
+  /*background: url(../images/back2.jpg) no-repeat;*/
+  /*background-size: cover;*/
+  /*background-attachment: fixed;*/
+  /*margin: auto;*/
+/*}*/
+
 .header-parallax {
-  background: url(../images/header/header-parallax.jpg);
+  background: url(../images/header/header.jpg);
   background-size: cover;
   background-attachment: fixed;
   margin: auto;
@@ -201,7 +208,7 @@ padding: 100px 0 90px;
 }
 
 .opcaity {
-  background: rgba(0,0,0,0.89);
+  background: rgba(0,0,0,0.68);
 }
 
 /******************************
