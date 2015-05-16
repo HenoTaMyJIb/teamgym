@@ -24,7 +24,8 @@ class TeamsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+
+        return view('teams.create');
 	}
 
 	/**

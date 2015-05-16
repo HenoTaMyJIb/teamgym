@@ -45,6 +45,7 @@ Route::resource('coaches', 'CoachesController');
 Route::resource('gymnasts', 'GymnastsController');//vse routy odnoi zapisju
 Route::resource('judges', 'JudgesController');
 Route::resource('competitions', 'CompetitionsController');
+Route::resource('teams', 'TeamsController');
 
 //Route::get('age-groups', 'AgeGroupsController@index');
 //Route::get('age-groups/create', 'AgeGroupsController@create');

@@ -70,8 +70,9 @@ class CompetitionsController extends Controller
     {
         $competition = Competition::findOrFail($id);
         $teams = $competition->teams();
-        
-        return view('competitions.show', compact(['competition', 'teams']));
+        $isRegister = Carbon::now()->between(Carbon::parse($competition->reg_start), Carbon::parse($competition->reg_end));
+
+        return view('competitions.show', compact(['competition', 'teams', 'isRegister']));
     }
 
     /**

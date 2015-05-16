@@ -22,7 +22,7 @@
                     <tbody>
                     @foreach ($competitions as $competition)
                         <tr>
-                            <td>{{ $competition->name }}</td>
+                            <td><a href="{{url('competitions/' . $competition->id)}}">{{ $competition->name }}</a></td>
                             <td>{{ $competition->start_date }}</td>
                             <td>{{ $competition->address }}</td>
                             <td>{{ $competition->reg_start }}</td>
