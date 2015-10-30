@@ -7,10 +7,15 @@ class Competition extends Model
 {
 
     protected $dates = ['start_date', 'end_date', 'reg_start', 'reg_end'];
-    
+
     public function teams()
     {
         return $this->hasMany('App\Models\Team');
+    }
+
+    public function scopeOpen($query)
+    {
+        return $query->where('reg_end', '>=', Carbon::now());
     }
 
     public function getStartDateAttribute($date)
@@ -46,6 +51,12 @@ class Competition extends Model
     public function setRegEndAttribute($date)
     {
         $this->attributes['reg_end'] = Carbon::createFromFormat('d.m.Y', $date);
+    }
+
+    public function isOpen()
+    {
+//        if($this->)
+        return true;
     }
 
 }

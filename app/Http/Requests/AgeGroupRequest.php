@@ -23,9 +23,9 @@ class AgeGroupRequest extends Request {
 	{
 		return [
 			'name' => 'required',
-            'min_year' => 'required',
-            'max_year' => 'required',
-            'rule_type' => 'required',
+            'min_age' => 'required',
+            'max_age' => 'required',
+            'code_of_points' => 'required',
             'gymnasts_amount' => 'required'
 		];
 	}

@@ -38,6 +38,11 @@ class CreateTeamsTable extends Migration {
                 ->references('id')
                 ->on('clubs')
                 ->onDelete('cascade');
+
+            $table->foreign('gender_category')
+                ->references('code')
+                ->on('genders')
+                ->onDelete('cascade');
         });
 	}
 

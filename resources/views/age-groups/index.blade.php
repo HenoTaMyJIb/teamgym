@@ -12,20 +12,20 @@
                     <thead>
                     <tr>
                         <td>Name</td>
-                        <td>Rule</td>
+                        <td>Code of points</td>
                         <td>Gymnasts amount</td>
-                        <td>Min year</td>
-                        <td>Max year</td>
+                        <td>Min age</td>
+                        <td>Max age</td>
                         <td>Actions</td>
                     </tr>
                     </thead>
                     @foreach ($ageGroups as $ageGroup)
                     <tr>
                         <td>{{ $ageGroup->name }}</td>
-                        <td>{{ $ageGroup->rule_type }}</td>
-                        <td>{{ $ageGroup->gymnasts_amount }}</td>
-                        <td>{{ $ageGroup->min_year }}</td>
-                        <td>{{ $ageGroup->max_year }}</td>
+                        <td>{{ $ageGroup->codeOfPoints->name }}</td>
+                        <td>{{ $ageGroup->gymnastsAmount->name }}</td>
+                        <td>{{ $ageGroup->min_age }}</td>
+                        <td>{{ $ageGroup->max_age }}</td>
                         <td>
                             <a href="{{ url('age-groups/' . $ageGroup->slug . '/edit') }}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                         </td>

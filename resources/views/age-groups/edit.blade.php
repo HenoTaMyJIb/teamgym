@@ -16,22 +16,22 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <div class="form-group">
-                            {!! Form::label('min_year', 'Min year:') !!}
-                            {!! Form::input('number', 'min_year', null, ['class' => 'form-control', 'min' => '1950', 'max' => '2015']) !!}
+                            {!! Form::label('min_year', 'Min age:') !!}
+                            {!! Form::input('number', 'min_age', null, ['class' => 'form-control', 'min' => '0', 'max' => '100']) !!}
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
-                            {!! Form::label('max_year', 'Max year:') !!}
-                            {!! Form::input('number', 'max_year', null, ['class' => 'form-control', 'min' => '1950', 'max' => '2015']) !!}
+                            {!! Form::label('max_year', 'Max age:') !!}
+                            {!! Form::input('number', 'max_age', null, ['class' => 'form-control', 'min' => '0', 'max' => '100']) !!}
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-6">
                         <div class="form-group">
-                            {!! Form::label('rule_type', 'Code of Points:') !!}
-                            {!! Form::select('rule_type', $rules, null, ['class' => 'form-control']) !!}
+                            {!! Form::label('code_of_points', 'Code of Points:') !!}
+                            {!! Form::select('code_of_points', $rules, null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="col-xs-6">

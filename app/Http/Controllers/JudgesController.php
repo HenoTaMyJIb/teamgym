@@ -7,12 +7,18 @@ use App\Models\Person;
 use App\Models\Club;
 
 
-class JudgesController extends Controller {
+class JudgesController extends ControllerBase {
 
+    /**
+     * Create a new controller instance.
+     *
+     */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('auth');
     }
+
 	public function index()
 	{
 		//

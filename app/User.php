@@ -31,4 +31,27 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+    public function person()
+    {
+        return $this->belongsTo('App\Models\Person');
+    }
+
+    public function isAdmin()
+    {
+        if($this->role_code === 'admin') {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isCoach()
+    {
+        if($this->role_code === 'coach') {
+            return true;
+        }
+
+        return false;
+    }
+
 }

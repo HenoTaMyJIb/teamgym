@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class ClassifiersController extends Controller {
+class ClassifiersController extends ControllerBase
+{
 
     /**
      * Create a new controller instance.
@@ -14,19 +15,18 @@ class ClassifiersController extends Controller {
      */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('auth');
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-        $classifiers = Classifier::all();
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
 
-        return view('classifiers.index', compact('classifiers'));
-	}
+    }
 
 }

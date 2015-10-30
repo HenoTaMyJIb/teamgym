@@ -31,7 +31,7 @@
                     <div class="col-xs-6">
                         <div class="form-group">
                             {!! Form::label('rule_type', 'Code of Points:') !!}
-                            {!! Form::select('rule_type', $rules, null, ['class' => 'form-control']) !!}
+                            {!! Form::select('code_of_points', $rules, null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="col-xs-6">

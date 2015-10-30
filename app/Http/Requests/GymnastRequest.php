@@ -1,6 +1,9 @@
 <?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\Models\Gymnast;
+use App\Models\Person;
+use Illuminate\Support\Facades\Auth;
 
 class GymnastRequest extends Request {
 
@@ -21,11 +24,12 @@ class GymnastRequest extends Request {
      */
     public function rules()
     {
+        $gymnast = Gymnast::find($this->segment(2));
+        $id = empty($gymnast) ? 'NULL' : $gymnast->person->id;
         return [
-//            'first_name' => 'required',
-//            'last_name' => 'required',
-//            'code' => 'required',
-//            'email' => 'required'
+            'person.first_name' => 'required',
+            'person.last_name' => 'required',
+            'person.code' => 'unique:people,code,'.$id.',id,deleted_at,NULL',
         ];
     }
 

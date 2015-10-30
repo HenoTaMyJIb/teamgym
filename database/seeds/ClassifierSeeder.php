@@ -4,30 +4,38 @@ class ClassifierSeeder extends \Illuminate\Database\Seeder{
 
     public function run()
     {
-        DB::table('classifiers')->delete();
-        \App\Models\Classifier::create(['code' => 'gymnasts_amount', 'name' => 'Gymnasts amount', 'notes' => 'Defines min and max team members']);
-        \App\Models\Classifier::create(['code' => 'gender_category', 'name' => 'Team types', 'notes' => 'Woman, man, mixed']);
-        \App\Models\Classifier::create(['code' => 'rule_type', 'name' => 'Rule types', 'notes' => 'Different rules such as UEG or EEVL']);
-        \App\Models\Classifier::create(['code' => 'coach_category', 'name' => 'Coach categories', 'notes' => 'Coach categories']);
+        DB::table('gymnast_amounts')->delete();
+        \App\Models\GymnastAmount::create(['name' => '6 - 12 gymnasts', 'code' => 'full', 'min' => '6', 'max' => '12']);
+        \App\Models\GymnastAmount::create(['name' => '3 - 5 gymnasts', 'code' => 'trio', 'min' => '3', 'max' => '5']);
 
-        DB::table('classifier_items')->delete();
-        $classifier = \App\Models\Classifier::where('code', '=', 'gymnasts_amount')->first();
-        \App\Models\ClassifierItem::create(['code' => 'full', 'name' => '6 - 12 gymnasts', 'classifier_id' => $classifier->id]);
-        \App\Models\ClassifierItem::create(['code' => 'trio', 'name' => '3 - 5 gymnasts', 'classifier_id' => $classifier->id]);
+        DB::table('code_of_points')->delete();
+        \App\Models\CodeOfPoint::create(['name' => 'Mini B EEVL', 'code' => 'mini_b_eelv']);
+        \App\Models\CodeOfPoint::create(['name' => 'Mini A EEVL', 'code' => 'mini_a_eelv']);
+        \App\Models\CodeOfPoint::create(['name' => 'Lapsed B EEVL', 'code' => 'lapsed_b_eelv']);
+        \App\Models\CodeOfPoint::create(['name' => 'UEG', 'code' => 'ueg']);
 
-        $classifier = \App\Models\Classifier::where('code', '=', 'gender_category')->first();
-        \App\Models\ClassifierItem::create(['code' => 'women', 'name' => 'Women', 'classifier_id' => $classifier->id]);
-        \App\Models\ClassifierItem::create(['code' => 'men', 'name' => 'Men', 'classifier_id' => $classifier->id]);
-        \App\Models\ClassifierItem::create(['code' => 'mix', 'name' => 'Mix', 'classifier_id' => $classifier->id]);
+        DB::table('genders')->delete();
+        \App\Models\Gender::create(['name' => 'Men', 'code' => 'men']);
+        \App\Models\Gender::create(['name' => 'Women', 'code' => 'women']);
+        \App\Models\Gender::create(['name' => 'Mix', 'code' => 'mix']);
 
-        $classifier = \App\Models\Classifier::where('code', '=', 'rule_type')->first();
-        \App\Models\ClassifierItem::create(['code' => 'ueg', 'name' => 'UEG', 'classifier_id' => $classifier->id]);
-        \App\Models\ClassifierItem::create(['code' => 'mini', 'name' => 'Mini EEVL', 'classifier_id' => $classifier->id]);
-        \App\Models\ClassifierItem::create(['code' => 'youth', 'name' => 'Youth EEVL', 'classifier_id' => $classifier->id]);
+        DB::table('disciplines')->delete();
+        \App\Models\Discipline::create(['name' => 'Floor', 'code' => 'floor']);
+        \App\Models\Discipline::create(['name' => 'Tumbling', 'code' => 'tumbling']);
+        \App\Models\Discipline::create(['name' => 'Trampette', 'code' => 'trampette']);
 
-        $classifier = \App\Models\Classifier::where('code', '=', 'coach_category')->first();
-        \App\Models\ClassifierItem::create(['code' => 'first', 'name' => 'First', 'classifier_id' => $classifier->id]); // sample
+        DB::table('element_types')->delete();
+        \App\Models\ElementType::create(['name'=> 'Pirouettes', 'code' => 'pirouettes', 'discipline_code' => 'floor']);
+        \App\Models\ElementType::create(['name'=> 'Jumps / Leaps / Hops', 'code' => 'jumps', 'discipline_code' => 'floor']);
+        \App\Models\ElementType::create(['name'=> 'Balance elements', 'code' => 'balance', 'discipline_code' => 'floor']);
+        \App\Models\ElementType::create(['name'=> 'Power elements', 'code' => 'power', 'discipline_code' => 'floor']);
+        \App\Models\ElementType::create(['name'=> 'Acrobatic elements', 'code' => 'acrobatic', 'discipline_code' => 'floor']);
+        \App\Models\ElementType::create(['name'=> 'Forward Elements', 'code' => 'forward', 'discipline_code' => 'tumbling']);
+        \App\Models\ElementType::create(['name'=> 'Backward Elements ', 'code' => 'backward', 'discipline_code' => 'tumbling']);
+        \App\Models\ElementType::create(['name'=> 'With Vaulting Table Backward Rotation', 'code' => 'backward_with_table', 'discipline_code' => 'trampette']);
+        \App\Models\ElementType::create(['name'=> 'With Vaulting Table Forward Rotation', 'code' => 'forward_with_table', 'discipline_code' => 'trampette']);
+        \App\Models\ElementType::create(['name'=> 'Without Vaulting Table', 'code' => 'without_table', 'discipline_code' => 'trampette']);
 
     }
 
-} 
+}

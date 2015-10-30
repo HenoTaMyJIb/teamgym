@@ -1,5 +1,9 @@
 <?php namespace App\Providers;
 
+use App\Models\AgeGroup;
+use App\Models\Discipline;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider {
@@ -11,7 +15,13 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		//
+//        $ageGroupsMenu = AgeGroup::all();
+//        $disciplinesMenu = Discipline::all();
+//        $countries = json_decode(file_get_contents(base_path('public/countries.json')));
+////        $action = Route::current()->getName();
+////        $controller = class_basename($action['controller']);
+//
+//        View::share(compact('ageGroupsMenu', 'disciplinesMenu', 'countries'));
 	}
 
 	/**

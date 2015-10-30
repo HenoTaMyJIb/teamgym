@@ -148,9 +148,7 @@ return [
 
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
-
-
-
+        'Barryvdh\DomPDF\ServiceProvider',
 
 	],
 
@@ -202,7 +200,8 @@ return [
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'Flash'     => 'Laracasts\Flash\Flash',
-        'Carbon'    => 'Carbon\Carbon'
+        'Carbon'    => 'Carbon\Carbon',
+        'PDF'       => 'Barryvdh\DomPDF\Facade'
 	],
 
 ];

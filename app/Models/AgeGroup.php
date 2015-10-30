@@ -12,11 +12,21 @@ class AgeGroup extends Model {
         'name',
         'min_year',
         'max_year',
-        'rule_type',
+        'code_of_points',
         'gymnasts_amount'
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function codeOfPoints()
+    {
+        return $this->hasOne('App\Models\CodeOfPoint', 'code', 'code_of_points');
+    }
+
+    public function gymnastsAmount()
+    {
+        return $this->hasOne('App\Models\GymnastAmount', 'code', 'gymnasts_amount');
+    }
 
     public function setNameAttribute($name)
     {

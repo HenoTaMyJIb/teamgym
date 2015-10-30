@@ -3,13 +3,14 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Gymnast extends Model {
+class Gymnast extends Model
+{
 
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
-	public function person()
+    public function person()
     {
         return $this->belongsTo('App\Models\Person');
     }
@@ -19,4 +20,8 @@ class Gymnast extends Model {
         return $this->belongsTo('App\Models\Club');
     }
 
+    public function teams()
+    {
+        return $this->hasMany('App\Model\Team');
+    }
 }

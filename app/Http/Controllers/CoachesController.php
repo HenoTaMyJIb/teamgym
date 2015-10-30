@@ -6,7 +6,8 @@ use App\Models\Club;
 use App\Models\Coach;
 use App\Models\Person;
 
-class CoachesController extends Controller {
+class CoachesController extends ControllerBase
+{
 
     /**
      * Create a new controller instance.
@@ -14,18 +15,19 @@ class CoachesController extends Controller {
      */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('auth');
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -34,15 +36,14 @@ class CoachesController extends Controller {
      * @return \Illuminate\View\View
      */
     public function create($slug = null)
-	{
-        if(is_null($slug))
-        {
+    {
+        if (is_null($slug)) {
             $slug = 'trefoil'; // TODO logged in user club
         }
         $club = Club::whereSlug($slug)->firstOrFail();
 
         return view('coaches.create', compact('club'));
-	}
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -52,7 +53,7 @@ class CoachesController extends Controller {
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store($slug, CoachRequest $request)
-	{
+    {
         $club = Club::whereSlug($slug)->firstOrFail();
         $person = Person::create($request->get('person'));
         $coach = Coach::create($request->get('coach'));
@@ -62,20 +63,20 @@ class CoachesController extends Controller {
 
         flash('New coach added');
         return redirect('clubs/' . $club->slug);
-	}
+    }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function edit($id)
+    {
         $coach = Coach::findOrFail($id);
 
-		return view('coaches.edit', compact('coach'));
-	}
+        return view('coaches.edit', compact('coach'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -85,14 +86,14 @@ class CoachesController extends Controller {
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update($id, CoachRequest $request)
-	{
+    {
         $coach = Coach::findOrFail($id);
         $coach->person()->update($request->get('person'));
         $coach->update($request->get('coach'));
 
         flash('Coach information updated');
         return redirect('clubs/' . $coach->club->slug);
-	}
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -101,12 +102,12 @@ class CoachesController extends Controller {
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy($id)
-	{
+    {
         $coach = Coach::findOrFail($id);
         $coach->delete();
 
         flash('Coach "' . $coach->person->getFullName() . '" deleted');
         return redirect('clubs/' . $coach->club->slug);
-	}
+    }
 
 }

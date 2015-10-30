@@ -18,8 +18,7 @@ function delete_form($routeParams, $label = 'Delete')
     return $form .= Form::close();
 }
 
-Route::get('/', 'WelcomeController@index');
-Route::get('/welcome', 'WelcomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -32,11 +31,15 @@ Route::post('coaches/{club}', 'CoachesController@store');
 
 //Route::get('/gymnasts', 'GymnastsController@index');
 Route::get('clubs/{club}/gymnast', 'GymnastsController@create');
-Route::post('gymnasts/{club}', 'GymnastsController@store');
+Route::post('gymnasts', 'GymnastsController@store');
 
 
 Route::get('clubs/{club}/judge', 'JudgesController@create');
 Route::post('judges/{club}', 'JudgesController@store');
+
+Route::get('competitions/{competitionId}/teams/create', 'TeamsController@create');
+Route::post('competitions/{competitionId}/teams', 'TeamsController@store');
+Route::get('competitions/{competitionId}/teams/{teamId}', 'TeamsController@show');
 
 
 Route::resource('clubs', 'ClubsController');
@@ -45,7 +48,22 @@ Route::resource('coaches', 'CoachesController');
 Route::resource('gymnasts', 'GymnastsController');//vse routy odnoi zapisju
 Route::resource('judges', 'JudgesController');
 Route::resource('competitions', 'CompetitionsController');
-Route::resource('teams', 'TeamsController');
+//Route::resource('teams', 'TeamsController');
+Route::get('tariff-forms/pdf', 'TariffFormsController@pdf');
+Route::resource('tariff-forms', 'TariffFormsController');
+Route::get('tariff-forms/create/{discipline}/{team}', 'TariffFormsController@create');
+//Route::post('tariff-forms', 'TariffFormsController@store');
+//Route::get('tariff-forms/{tariff}', 'TariffFormsController@show');
+
+Route::get('elements/tumbling/{age}', 'ElementsController@tumbling');
+Route::get('elements/floor/{age}', 'ElementsController@floor');
+Route::get('elements/trampette/{age}', 'ElementsController@trampette');
+Route::get('elements', 'ElementsController@index');
+
+Route::get('api/gymnasts', 'ApiController@gymnasts');
+Route::get('api/elements', 'ApiController@elements');
+Route::get('api/age-groups', 'ApiController@ageGroups');
+Route::get('api/check', 'ApiController@check');
 
 //Route::get('age-groups', 'AgeGroupsController@index');
 //Route::get('age-groups/create', 'AgeGroupsController@create');

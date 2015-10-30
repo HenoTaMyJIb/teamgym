@@ -1,6 +1,10 @@
 <?php namespace App\Http\Controllers;
 
-class HomeController extends Controller {
+use App\Models\AgeGroup;
+use App\Models\Discipline;
+use Illuminate\Support\Facades\View;
+
+class HomeController extends ControllerBase {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -18,9 +22,10 @@ class HomeController extends Controller {
      *
      */
     public function __construct()
-	{
-		$this->middleware('auth');
-	}
+    {
+        parent::__construct();
+        $this->middleware('auth');
+    }
 
 	/**
 	 * Show the application dashboard to the user.

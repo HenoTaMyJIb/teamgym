@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\Models\Competition;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class CompetitionsController extends Controller
+class CompetitionsController extends ControllerBase
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -69,7 +78,7 @@ class CompetitionsController extends Controller
     public function show($id)
     {
         $competition = Competition::findOrFail($id);
-        $teams = $competition->teams();
+        $teams = $competition->teams()->get();
         $isRegister = Carbon::now()->between(Carbon::parse($competition->reg_start), Carbon::parse($competition->reg_end));
 
         return view('competitions.show', compact(['competition', 'teams', 'isRegister']));

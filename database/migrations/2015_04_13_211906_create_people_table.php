@@ -17,10 +17,15 @@ class CreatePeopleTable extends Migration {
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->date('birth_day')->nullable();
+            $table->integer('age')->nullable();
+            $table->char('gender')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 		});
 	}
