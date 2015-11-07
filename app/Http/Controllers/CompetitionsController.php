@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Models\AgeGroup;
 use App\Models\Competition;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -49,30 +50,24 @@ class CompetitionsController extends ControllerBase
     public function store(Request $request)
     {
         $data = $request->all();
-        $competitionDates = explode('-', $request->get('competition_date'));
-        $startDate = trim($competitionDates[0]);
-        $endDate = trim($competitionDates[1]);
-
-        $registrationDates = explode('-', $request->get('registration_date'));
-        $regStart = trim($registrationDates[0]);
-        $regEnd = trim($registrationDates[1]);
 
         $competition = new Competition();
         $competition->name = $data['name'];
         $competition->address = $data['address'];
-        $competition->start_date = $startDate;
-        $competition->end_date = $endDate;
-        $competition->reg_start = $regStart;
-        $competition->reg_end = $regEnd;
+        $competition->start_date = $data['start_date'];
+        $competition->pre_reg_end = $data['pre_reg_end'];
+        $competition->reg_start = $data['reg_start'];
+        $competition->reg_end = $data['reg_end'];
+        $competition->creator()->associate($this->getCurrentUser());
         $competition->save();
-        
+
         return redirect('competitions');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -81,40 +76,63 @@ class CompetitionsController extends ControllerBase
         $teams = $competition->teams()->get();
         $isRegister = Carbon::now()->between(Carbon::parse($competition->reg_start), Carbon::parse($competition->reg_end));
 
-        return view('competitions.show', compact(['competition', 'teams', 'isRegister']));
+        return view('competitions.show', compact([
+            'competition',
+            'teams',
+            'isRegister'
+        ]));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
     {
-        //
+        $competition = Competition::findOrFail($id);
+        return view('competitions.edit', compact(['competition']));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        $data = $request->all();
+
+        $competition = Competition::findOrFail($id)->first();
+        $competition->name = $data['name'];
+        $competition->address = $data['address'];
+        $competition->start_date = $data['start_date'];
+        $competition->pre_reg_end = $data['pre_reg_end'];
+        $competition->reg_start = $data['reg_start'];
+        $competition->reg_end = $data['reg_end'];
+        $competition->save();
+
+        return redirect("competitions/$id");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function stats($id)
+    {
+        $competition = Competition::findOrFail($id);
+        $ageGroups = AgeGroup::all();
+        return view('competitions.stats', compact(['competition', 'ageGroups']));
     }
 
 }

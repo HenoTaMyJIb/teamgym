@@ -5,14 +5,17 @@
     <div class="col-xs-12">
         <div class="box box-success">
             <div class="box-header with-border">
-                <h3 class="box-title">Team {{ $team->name }}</h3>
+                <h3 class="box-title">{{ $team->competition->name}}</h3>
             </div>
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>{{ $team->competition->name}}</h4>
-                        <h4>{{ $team->club->name}} {{$team->name}}</h4>
+                        <h4><strong>Team name: </strong>{{$team->name}} ({{ $team->club->name}})</h4>
                         <h4>{{ $team->ageGroup->name}}, {{$team->gender->name}}</h4>
+                        <hr/>
+                        @if($team->status === 'registered')
+                            <p>You registration has been sent.</p>
+                        @endif
                     </div>
                     <!--                    <div class="col-md-6">-->
                     <!--                        <h4><b>Tariff forms</b></h4>-->
@@ -27,6 +30,29 @@
                     <!--                            <a href="{{ url('tariff-forms/create/trampette/' . $team->id)}}" class="btn btn-primary">Add trampette</a>-->
                     <!--                        @endif-->
                     <!--                    </div>-->
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered">
+                            @if($team->status === 'draft')
+                            <tr>
+                                <td class="text-danger"><strong>Pre registration ends at {{$team->competition->pre_reg_end }}</strong></td>
+                                <td><a href="{{url('teams/' . $team->id . '/status/pre-registered')}}">Send pre registration</a></td>
+                            </tr>
+                            @elseif($team->status === 'pre-registered')
+                            <tr>
+                                <td class="text-danger"><strong>Registration ends at {{$team->competition->reg_end }}</strong></td>
+                                <td><a href="{{url('teams/' . $team->id . '/status/registered')}}">Confirm registartion</a></td>
+                            </tr>
+                            @endif
+
+                        </table>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="{{url('teams/' . $team->id . '/edit')}}" class="btn btn-success">Edit</a>
+                        <a href="{{url('competitions/'.$team->competition->id)}}" class="btn btn-default">Back</a>
+                        <a href="#" class="btn btn-default">Delete</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,11 +82,12 @@
                                 <td>{{ $gymnast->person->gender }}</td>
                                 <td>
                                     @if(($gymnast->person->age > $team->ageGroup->max_age) || ($gymnast->person->age < $team->ageGroup->min_age))
-                                        <i class="fa fa-warning text-danger" data-toggle="tooltip" data-placement="top" title="{{$ageWarning}}"></i>
+                                    <i class="fa fa-warning text-danger" data-toggle="tooltip" data-placement="top" title="{{$ageWarning}}"></i>
                                     @endif
                                     @if($team->gender->code !== 'mix' && $gymnast->person->gender !== $team->gender->code)
-                                        <i class="fa fa-warning text-danger" data-toggle="tooltip" data-placement="top" title="{{$genderWarning}}"></i>
+                                    <i class="fa fa-warning text-danger" data-toggle="tooltip" data-placement="top" title="{{$genderWarning}}"></i>
                                     @endif
+                                    <i class="fa fa-check text-success"></i>
                                 </td>
                             </tr>
                             @endforeach
@@ -84,16 +111,7 @@
                     </div>
                 </div>
             </div>
-            <div class=" col-md-12">
-                <div class="box">
-                    <div class="box-body">
-                        <a href="{{url('teams/' . $team->id . '/edit')}}" class="btn btn-success">Edit</a>
-                        <a href="#" class="btn btn-default">Delete</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
-
 @endsection

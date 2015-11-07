@@ -123,6 +123,11 @@
 </div>
 <script>
     $(document).ready(function () {
+        $('.gymnast-select').each(function(){
+            var gender = $('input[name="team[gender_category]"]').val();
+            var ageGroupId = $('select[name="team[age_group_id]"]').val();
+            checkGymnastStatus($(this).val(), ageGroupId, gender, $(this));
+        });
         $('select[name="team[club_id]"]').on('change', function () {
             var clubId = $(this).val();
             $('select.gymnast-select').select2({
@@ -240,7 +245,6 @@
             data: { ageGroup: ageGroupId, gender: gender, gymnast: gymnastId}
         })
             .done(function (data) {
-                console.log(data.message);
                 if (data.status === 0) {
                     var message = data.message;
                     $.each(message, function (index, value) {

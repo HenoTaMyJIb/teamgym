@@ -46,9 +46,15 @@ class TeamsController extends ControllerBase
             $ageGroups = AgeGroup::all()->lists('name', 'id');
             $genders = Gender::all();
             $clubs = Club::all()->lists('name', 'id');
-            return view('teams.create', compact(['ageGroups', 'clubs', 'competition', 'genders']));
-        }
-        else {
+            $allowedClubs = $this->getAllowedClubs();
+            return view('teams.create', compact([
+                'ageGroups',
+                'clubs',
+                'competition',
+                'genders',
+                'allowedClubs'
+            ]));
+        } else {
             \Flash::error('Registration is over');
             return redirect('competitions/' . $competition->id);
         }
@@ -59,13 +65,27 @@ class TeamsController extends ControllerBase
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $competitionId)
     {
-        $team = Team::create($request->get('team'));
+        $data = $request->get('team');
+        $competition = Competition::findOrFail($competitionId);
+        $ageGroup = AgeGroup::findOrFail($data['age_group_id']);
+        $club = Club::findOrFail($data['club_id']);
+        $gender = Gender::where('code', $data['gender_category'])->first();
+        $team = new Team();
+        $team->competition()->associate($competition);
+        $team->club()->associate($club);
+        $team->ageGroup()->associate($ageGroup);
+        $team->gender()->associate($gender);
+        $team->status = 'draft';
+        $team->name = $data['name'];
+        $team->creator()->associate($this->getCurrentUser());
+        $team->save();
         if ($request->get('gymnasts')) {
             $team->gymnasts()->attach(array_values($request->get('gymnasts')));
         }
-        return redirect('teams/' . $team->competition->id);
+
+        return redirect('teams/' . $team->id);
     }
 
     /**
@@ -110,12 +130,21 @@ class TeamsController extends ControllerBase
      */
     public function update($id, Request $request)
     {
+        $data = $request->get('team');
+
         $team = Team::findOrFail($id);
+        $ageGroup = AgeGroup::findOrFail($data['age_group_id']);
+        $club = Club::findOrFail($data['club_id']);
+        $gender = Gender::where('code', $data['gender_category'])->first();
+        $team->club()->associate($club);
+        $team->ageGroup()->associate($ageGroup);
+        $team->gender()->associate($gender);
+        $team->status = 'draft';
+        $team->name = $data['name'];
         $team->gymnasts()->sync(array_values($request->get('gymnasts')));
-        $team->update($request->get('team'));
+        $team->update();
 
         return redirect('teams/' . $team->id);
-        dd($request->all());
     }
 
     /**
@@ -127,6 +156,15 @@ class TeamsController extends ControllerBase
     public function destroy($id)
     {
         //
+    }
+
+    public function updateStatus($id, $status)
+    {
+        $team = Team::findOrFail($id);
+        $team->status = $status;
+        $team->update();
+
+        return redirect('teams/' . $team->id);
     }
 
 }

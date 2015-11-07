@@ -39,7 +39,11 @@ Route::post('judges/{club}', 'JudgesController@store');
 
 Route::get('competitions/{competitionId}/teams/create', 'TeamsController@create');
 Route::post('competitions/{competitionId}/teams', 'TeamsController@store');
-Route::get('competitions/{competitionId}/teams/{teamId}', 'TeamsController@show');
+Route::get('competitions/{competitionId}/stats', 'CompetitionsController@stats');
+Route::get('teams/{teamId}', 'TeamsController@show');
+Route::get('teams/{teamId}/edit', 'TeamsController@edit');
+Route::patch('teams/{teamId}', 'TeamsController@update');
+Route::get('teams/{teamId}/status/{status}', 'TeamsController@updateStatus');
 
 
 Route::resource('clubs', 'ClubsController');

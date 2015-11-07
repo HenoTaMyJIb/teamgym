@@ -18,6 +18,8 @@
     <!-- DataTables Bootstrap 1.10.6 -->
     {!! Html::style("theme/adminLTE/plugins/datatables/css/dataTables.bootstrap.css") !!}
     {!! Html::style("theme/adminLTE/plugins/datatables/extensions/responsive/css/dataTables.responsive.css") !!}
+    <!-- Bootstrap datepicker -->
+    {!! Html::style("theme/adminLTE/plugins/datepicker/css/bootstrap-datepicker.min.css") !!}
     <!-- Date range picker -->
     {!! Html::style("theme/adminLTE/plugins/daterangepicker/daterangepicker-bs3.css") !!}
     <!-- iCheck -->
@@ -46,6 +48,8 @@
     {!! Html::script("theme/adminLTE/plugins/datatables/js/jquery.dataTables.min.js") !!}
     {!! Html::script("theme/adminLTE/plugins/datatables/js/dataTables.bootstrap.min.js") !!}
     {!! Html::script("theme/adminLTE/plugins/datatables/extensions/responsive/js/dataTables.responsive.min.js") !!}
+    <!-- Bootstrap datepicker -->
+    {!! Html::script("theme/adminLTE/plugins/datepicker/js/bootstrap-datepicker.min.js") !!}
     <!-- Date range picker -->
     {!! Html::script("theme/adminLTE/plugins/daterangepicker/moment.js") !!}
     {!! Html::script("theme/adminLTE/plugins/daterangepicker/daterangepicker.js") !!}
@@ -66,63 +70,84 @@
 <!-- Site wrapper -->
 <div class="wrapper">
 
-<header class="main-header">
-    <a href="{{url('/')}}" class="logo"><b>Teamgym</b>EST</a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </a>
+    <header class="main-header">
+        <a href="{{url('/')}}" class="logo"><b>Teamgym</b>EST</a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
 
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="hidden-xs">{{ $personName }}</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{url('img/profile/profile-icon.png')}}" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{ $user->person->getFullName() }}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="{{url('img/profile/profile-icon.png')}}" class="img-circle" alt="User Image">
+
+                                <p>
+                                    {{ $user->person->getFullName() }}
+                                    <small>{{ $user->role_code}}</small>
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+<!--                                <div class="pull-left">-->
+<!--                                    <a href="#" class="btn btn-default btn-flat">Profile</a>-->
+<!--                                </div>-->
+                                <div class="pull-right">
+                                    <a href="{{url('auth/logout')}}" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
 
-<!-- Left side column. contains the sidebar -->
-@include('layouts.left-sidebar')
+    <!-- Left side column. contains the sidebar -->
+    @include('layouts.left-sidebar')
 
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Main content -->
-    <section class="content">
-        @include('flash::message')
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+            @include('flash::message')
+            @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 
-        @yield('content')
-    </section>
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-
-<footer class="main-footer">
-    <div class="pull-right hidden-xs">
-        <b>Version</b> 2.0
+            @yield('content')
+        </section>
+        <!-- /.content -->
     </div>
-    <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-</footer>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+        reserved.
+    </footer>
 </div>
 <!-- ./wrapper -->
 

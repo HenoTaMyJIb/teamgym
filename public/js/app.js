@@ -5,6 +5,24 @@ $(document).ready(function () {
         });
     }
 
+    if ($('.datepicker-single').length > 0) {
+        $('.datepicker-single').each(function () {
+            $(this).datepicker({
+                autoclose: true,
+                format: 'dd.mm.yyyy'
+            });
+        });
+    }
+
+    if ($('.input-daterange').length > 0) {
+        $('.input-daterange').each(function () {
+            $(this).datepicker({
+                autoclose: true,
+                format: 'dd.mm.yyyy'
+            });
+        });
+    }
+
     if ($('.date-single').length > 0) {
         $('.date-single').each(function () {
             $(this).daterangepicker({
@@ -202,12 +220,10 @@ $(document).ready(function () {
         highlight: function (element, errorClass, validClass) {
             $(element).parents('.form-group').addClass('has-error').removeClass('has-success');
         },
-        unhighlight: function(element, errorClass, validClass) {
+        unhighlight: function (element, errorClass, validClass) {
             $(element).parents('.form-group').addClass('has-success').removeClass('has-error');
         }
     });
-
-
 
 
 })

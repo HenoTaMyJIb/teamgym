@@ -1,10 +1,12 @@
 <?php
 
+use Faker\Factory as Faker;
+
 class ClubTableSeeder extends \Illuminate\Database\Seeder{
 
     public function run()
     {
-
+        $faker = Faker::create();
         DB::table('clubs')->delete();
         DB::table('gymnasts')->delete();
         DB::table('coaches')->delete();
@@ -27,6 +29,20 @@ class ClubTableSeeder extends \Illuminate\Database\Seeder{
 
         \App\Models\Person::create(['first_name' => 'Maksim', 'last_name' => 'Nikolajev', 'code' => '67001011111']);
         \App\Models\Coach::create(['person_id' => \App\Models\Person::all()->last()->id, 'club_id' => \App\Models\Club::all()->last()->id]);
+
+        for($i = 0; $i <= 20; $i++)
+        {
+            $code = 50024021111 + $i;
+            \App\Models\Person::create(['first_name' => $faker->firstNameMale, 'last_name' => $faker->lastname, 'country' => 'Eesti', 'code' => $code]);
+            \App\Models\Gymnast::create(['person_id' => \App\Models\Person::all()->last()->id, 'club_id' => \App\Models\Club::all()->last()->id]);
+        }
+
+        for($i = 0; $i <= 20; $i++)
+        {
+            $code = 60024021111 + $i;
+            \App\Models\Person::create(['first_name' => $faker->firstNameFemale, 'last_name' => $faker->lastname, 'country' => 'Eesti', 'code' => $code]);
+            \App\Models\Gymnast::create(['person_id' => \App\Models\Person::all()->last()->id, 'club_id' => \App\Models\Club::all()->last()->id]);
+        }
 
         /* RONDAAT */
         \App\Models\Club::create(['name' => 'SK Rondaat', 'address' => 'Spordi 2, Kohtla-Järve', 'phone' => '+372 55 630 7935', 'email' => 'sportjura@mail.ru', 'slug' => 'rondaat']);
@@ -64,6 +80,37 @@ class ClubTableSeeder extends \Illuminate\Database\Seeder{
 
         \App\Models\Person::create(['first_name' => 'Heigo', 'last_name' => 'Klaos']);
         \App\Models\Coach::create(['person_id' => \App\Models\Person::all()->last()->id, 'club_id' => \App\Models\Club::all()->last()->id]);
+
+        for($i = 0; $i <= 20; $i++)
+        {
+            $code = 50023051111 + $i;
+            \App\Models\Person::create(['first_name' => $faker->firstNameMale, 'last_name' => $faker->lastname, 'country' => 'Eesti', 'code' => $code]);
+            \App\Models\Gymnast::create(['person_id' => \App\Models\Person::all()->last()->id, 'club_id' => \App\Models\Club::all()->last()->id]);
+        }
+
+        for($i = 0; $i <= 20; $i++)
+        {
+            $code = 50023051111 + $i;
+            \App\Models\Person::create(['first_name' => $faker->firstNameFemale, 'last_name' => $faker->lastname, 'country' => 'Eesti', 'code' => $code]);
+            \App\Models\Gymnast::create(['person_id' => \App\Models\Person::all()->last()->id, 'club_id' => \App\Models\Club::all()->last()->id]);
+        }
+
+        /* TLU */
+        \App\Models\Club::create(['name' => 'TLÜ VK', 'address' => 'Narva maantee 25, Tallinn', 'phone' => '+372 5555555', 'email' => 'tlu@email.com', 'slug' => 'tlu']);
+
+        for($i = 0; $i <= 20; $i++)
+        {
+            $code = 50011031111 + $i;
+            \App\Models\Person::create(['first_name' => $faker->firstNameMale, 'last_name' => $faker->lastname, 'country' => 'Eesti', 'code' => $code]);
+            \App\Models\Gymnast::create(['person_id' => \App\Models\Person::all()->last()->id, 'club_id' => \App\Models\Club::all()->last()->id]);
+        }
+
+        for($i = 0; $i <= 20; $i++)
+        {
+            $code = 50011031111 + $i;
+            \App\Models\Person::create(['first_name' => $faker->firstNameFemale, 'last_name' => $faker->lastname, 'country' => 'Eesti', 'code' => $code]);
+            \App\Models\Gymnast::create(['person_id' => \App\Models\Person::all()->last()->id, 'club_id' => \App\Models\Club::all()->last()->id]);
+        }
     }
 
 } 

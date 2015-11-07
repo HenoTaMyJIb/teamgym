@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class Team extends Model
 {
@@ -42,6 +43,11 @@ class Team extends Model
         return $this->belongsTo('App\Models\Competition');
     }
 
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'created_by', 'id');
+    }
+
     public function gymnasts()
     {
         return $this->belongsToMany('App\Models\Gymnast');
@@ -50,6 +56,14 @@ class Team extends Model
     public function tariffForms()
     {
         return $this->hasMany('App\Models\TariffForm');
+    }
+
+    public function isAllowedToWatch()
+    {
+        $user = Auth::user();
+        if ($user->isAdmin() || $this->creator->id === $user->id) {
+            return true;
+        }
     }
 
 }

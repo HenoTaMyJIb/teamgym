@@ -19,21 +19,29 @@
                     {!! Form::text('address', null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('competition_date', 'Date:') !!}
+                    {!! Form::label('start_date', 'Date:') !!}
                     <div class="input-group">
                         <div class="input-group-addon">
                             <i class="fa fa-clock-o"></i>
                         </div>
-                        {!! Form::text('competition_date', null, ['class' => 'form-control datetime-range']) !!}
+                        {!! Form::text('start_date', null, ['class' => 'form-control datepicker-single']) !!}
                     </div>
                 </div>
                 <div class="form-group">
                     {!! Form::label('registration_date', 'Registration date:') !!}
+                    <div class="input-group input-daterange">
+                        {!! Form::text('reg_start', null, ['class' => 'form-control']) !!}
+                        <span class="input-group-addon">-</span>
+                        {!! Form::text('reg_end', null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('pre_reg_end', 'Pre registration last date:') !!}
                     <div class="input-group">
                         <div class="input-group-addon">
                             <i class="fa fa-clock-o"></i>
                         </div>
-                        {!! Form::text('registration_date', null, ['class' => 'form-control date-range']) !!}
+                        {!! Form::text('pre_reg_end', null, ['class' => 'form-control datepicker-single']) !!}
                     </div>
                 </div>
 

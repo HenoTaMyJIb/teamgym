@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder {
         $this->call('AgeGroupTableSeeder');
         $this->call('TumblingElementsTableSeeder');
         $this->call('TrampetteElementsTableSeeder');
+        $this->call('FakeCompetitionsSeeder');
+
 	}
 }

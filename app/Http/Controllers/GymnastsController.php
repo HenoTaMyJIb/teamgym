@@ -5,6 +5,7 @@ use App\Http\Requests\GymnastRequest;
 use App\Models\Gymnast;
 use App\Models\Club;
 use App\Models\Person;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class GymnastsController extends ControllerBase
@@ -18,15 +19,13 @@ class GymnastsController extends ControllerBase
 
     public function index()
     {
-        $user = Auth::user();
-        if ($user->isAdmin()) {
-            $gymnasts = Gymnast::all();
-        } else if ($user->isCoach()) {
-            $coach = $user->person->coach;
-            if ($coach) {
-                $gymnasts = Gymnast::whereClubId($coach->club_id)->get();
-            }
+        $clubs = $this->getAllowedClubs();
+        $gymnasts = new Collection();
+        foreach($clubs as $club)
+        {
+            $gymnasts = $gymnasts->merge($club->gymnasts);
         }
+
         return view('gymnasts.index', compact('gymnasts'));
     }
 
@@ -37,16 +36,8 @@ class GymnastsController extends ControllerBase
      */
     public function create()
     {
-        $user = Auth::user();
-        if($user->isAdmin()) {
-            $clubs = Club::all();
-        } else if ($user->isCoach()) {
-            $coach = $user->person->coach;
-            if ($coach) {
-                $clubs = Gymnast::find($coach->club_id);
-            }
-        }
-        $clubs = $clubs->lists('name', 'id');
+        $allowedClubs = $this->getAllowedClubs();
+        $clubs = $allowedClubs->lists('name', 'id');
         return view('gymnasts.create', compact('clubs'));
     }
 
